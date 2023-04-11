@@ -21,7 +21,7 @@ public class SearchBean {
 	void connect() {
 		try {
 			Class.forName(jdbcDriver);
-			conn = DriverManager.getConnection(jdbcUrl, "root", "bookpasson");
+			conn = DriverManager.getConnection(jdbcUrl, "root", "flying");
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

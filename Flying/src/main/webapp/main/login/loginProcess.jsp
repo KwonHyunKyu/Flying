@@ -20,7 +20,7 @@
 	try {
 		String jdbcUrl = "jdbc:mysql://localhost:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
 		String dbUser = "root";
-		String dbPass = "bookpasson";
+		String dbPass = "flying";
 			
 		String sql ="select * from membertable where memberid = '" + id + "'";
 	

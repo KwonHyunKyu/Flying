@@ -17,7 +17,7 @@ public class InsertBean {
 	private final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
 	private final String jdbcUrl =  "jdbc:mysql://localhost:3306/flyingdb?serverTimezone=UTC";
 	private final String user = "root";
-	private final String pwd = "bookpasson";
+	private final String pwd = "flying";
 	
 	// DB 연결
 	void connect() {
