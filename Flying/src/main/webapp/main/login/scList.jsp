@@ -1,26 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/loginPage.css">
+<link rel="stylesheet" type="text/css" href="../css/scList.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Flying</title>
+
+<script>
+function goToScList() {
+  window.location.href = "#";
+}
+</script>
 </head>
 <body>
-
-
-<body>
 <header>
-    <jsp:include page="module/header.jsp" flush="false" />
-    
+    <jsp:include page="../module/header2.jsp" flush="false" />
     
 </header>
-<br>
-<br>
-<br>
 <main>
   <div class="search-container">
  <form>
@@ -33,7 +34,7 @@
   <div class="gallery-container">
     <!-- 갤러리 예약 영역 -->
     <div class="image-container">
-      <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
+      <img src="../img/Thumbnail/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">제목1</div>
       <div class="image-description"></div>
      <div class="rating-container">
@@ -53,7 +54,7 @@
 
     </div>
     <div class="image-container">
-      <img src="img/StudyCafeListTum2.jpg" alt="이미지 2">
+      <img src="../img/Thumbnail/StudyCafeListTum2.jpg" alt="이미지 2">
       <div class="image-title">제목2</div>
       <div class="image-description"></div>
     <div class="rating-container">
@@ -73,7 +74,7 @@
      
     </div>
     <div class="image-container">
-      <img src="img/StudyCafeListTum3.jpg" alt="이미지 3">
+      <img src="../img/Thumbnail/StudyCafeListTum3.jpg" alt="이미지 3">
       <div class="image-title">제목3</div>
       <div class="image-description"></div>
     <div class="rating-container">
@@ -100,7 +101,7 @@
     <div class="gallery-container">
     <!-- 갤러리 예약 영역 -->
     <div class="image-container">
-      <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
+      <img src="../img/Thumbnail/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">제목1</div>
       <div class="image-description"></div>
      <div class="rating-container">
@@ -120,7 +121,7 @@
 
     </div>
     <div class="image-container">
-      <img src="img/StudyCafeListTum2.jpg" alt="이미지 2">
+      <img src="../img/Thumbnail/StudyCafeListTum2.jpg" alt="이미지 2">
       <div class="image-title">제목2</div>
       <div class="image-description"></div>
     <div class="rating-container">
@@ -140,7 +141,7 @@
      
     </div>
     <div class="image-container">
-      <img src="img/StudyCafeListTum3.jpg" alt="이미지 3">
+      <img src="../img/Thumbnail/StudyCafeListTum3.jpg" alt="이미지 3">
       <div class="image-title">제목3</div>
       <div class="image-description"></div>
     <div class="rating-container">
@@ -164,10 +165,9 @@
     
   </div>
 </main>
-<div id=content>
-</div>
+
 <footer>
-	<jsp:include page="module/footer.jsp"/>
+	<jsp:include page="../module/footer.jsp"/>
 </footer>
 </body>
 </html>

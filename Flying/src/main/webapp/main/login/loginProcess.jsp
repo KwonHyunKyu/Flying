@@ -18,7 +18,7 @@
 	ResultSet rs = null;
 
 	try {
-		String jdbcUrl = "jdbc:mysql://localhost:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
+		String jdbcUrl = "jdbc:mysql://192.168.219.196:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
 		String dbUser = "root";
 		String dbPass = "flying";
 			
