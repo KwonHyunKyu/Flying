@@ -29,7 +29,7 @@
 	<form id="logintheme" action="loginProcess.jsp" name="login_form">
 		<img src="../img/mainlogo.png" width="300" height="100" alt="로고">
 		<div id="loginForm">
-			<input type="text" placeholder="아이디" id="login" name="id">
+			<input type="text" placeholder="아이디" id="login" name="id" value=<%=idStr%>>
 		</div>
 
 		<div id="passwordForm">
@@ -37,7 +37,7 @@
 		</div>
 
 		<div id="logincheck">
-			아이디 저장 <input type="checkbox" id="logincheckbox"  value="c1" name="idSave">
+			아이디 저장 <input type="checkbox" id="logincheckbox"  value="c1" name="idSave" <%=checkStr %>>
 		</div>
 
 		<div id="loginButton">

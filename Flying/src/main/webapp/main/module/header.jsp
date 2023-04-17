@@ -143,7 +143,7 @@ nav ul li:hover {
 			<span id="logomessage">당신의 시간은 소중하니까요.<br>비교는 플라잉에 맡겨주세요.</span>
 			<% if(memLogin != null) { %>
 				<div id="loginButton">
-				<%out.print(memId);%>님, 환영합니다! | <a href="member/myPage.jsp">MyPage</a> | <a href="login/logoutProcess.jsp">로그아웃</a>
+				<%out.print(memId);%>님, 환영합니다! | <a href="service/myPage.jsp">MyPage</a> | <a href="login/logoutProcess.jsp">로그아웃</a>
 				</div>	
 			<% } else { %>
             	<div id=loginButton>

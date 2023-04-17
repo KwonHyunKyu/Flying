@@ -3,7 +3,6 @@
 <%@ page import ="java.sql.*"  %>
 <% request.setCharacterEncoding("utf-8"); %>
 <link rel="stylesheet" type="text/css" href="../css/signUpProcess.css">
-
 <jsp:useBean class="flyingMember.MemberInfo" id="memInfo" scope="session"/>
 <jsp:setProperty name="memInfo" property="*" />
 <jsp:useBean class="flyingMember.InsertBean" id="memInsert" scope="session"/>

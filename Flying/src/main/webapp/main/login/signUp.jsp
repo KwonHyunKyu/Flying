@@ -3,6 +3,12 @@
 <link rel="stylesheet" type="text/css" href="../css/signUp.css">
 <!DOCTYPE html>
 <html>
+<style>
+#title1{ 
+	text-align: center;
+	margin-top:120px;	
+}
+</style>
 <head>
 <script>
 //joinform_check 함수로 유효성 검사
@@ -112,8 +118,8 @@ function id_check() { // 중복 검사에 대한 결과 페이지 출력
 		    	<span>*</span> 회원유형<br> 
 	    		<select name="memberType" id="membertype">
 				    <option value="">회원유형선택</option>
-				    <option value="single" selected="selected">개인회원</option>
-				    <option value="company" >기업회원</option>
+				    <option value="개인회원" selected="selected">개인회원</option>
+				    <option value="기업회원" >기업회원</option>
 				</select>
 	    	</div>
 	              
