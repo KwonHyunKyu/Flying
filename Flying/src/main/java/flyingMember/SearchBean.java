@@ -15,7 +15,7 @@ public class SearchBean {
 	ResultSet rs = null;
 	// MySql 연결
 	String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-	String jdbcUrl = "jdbc:mysql://192.168.219.196:3306/flyingdb?serverTimezone=UTC";
+	String jdbcUrl = "jdbc:mysql://192.168.219.104:3306/flyingdb?serverTimezone=UTC";
 	
 	// DB 연결
 	void connect() {

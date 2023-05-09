@@ -3,7 +3,8 @@
     
 <%
 	String memLogin = (String)session.getAttribute("memLogin");
-	String memId = (String)session.getAttribute("memID");
+	String memId = 	  (String)session.getAttribute("memID");
+	String adminTrue= (String)session.getAttribute("UserAdmin");
 %>
 <!DOCTYPE html>
 <html>
@@ -141,15 +142,19 @@ nav ul li:hover {
         <section id="top">
             <a id="logo" href="index.jsp"><img src="img/mainlogo.png" width="200" height="70" alt="로고"></a>
 			<span id="logomessage">당신의 시간은 소중하니까요.<br>비교는 플라잉에 맡겨주세요.</span>
-			<% if(memLogin != null) { %>
+			<% if(memLogin != null && adminTrue != null) { %>
+				<div id="loginButton">
+				관리자님, 환영합니다! | <a href="admin/memberManage.jsp">회원관리창</a> | <a href="login/logoutProcess.jsp">로그아웃</a>
+				</div>					
+			<%} else if(memLogin != null){ %> 
 				<div id="loginButton">
 				<%out.print(memId);%>님, 환영합니다! | <a href="service/myPage.jsp">MyPage</a> | <a href="login/logoutProcess.jsp">로그아웃</a>
-				</div>	
+				</div>
 			<% } else { %>
             	<div id=loginButton>
 	           		 <a href="login/loginPage.jsp">로그인</a> | <a href="login/signUp.jsp">회원가입</a>
             	</div>	
-		<% } %>
+			<% } %>
         </section>
     </header>
 

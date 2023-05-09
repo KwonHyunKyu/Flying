@@ -79,7 +79,7 @@ function id_check() { // 중복 검사에 대한 결과 페이지 출력
 
 </script>
 <meta charset="UTF-8">
-<title> Flying </title>
+<title> flying </title>
 </head>
 <body>
 <header>
