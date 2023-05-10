@@ -6,18 +6,18 @@
 <html>
 
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <title>flying</title>
 </head>
 <body>
 
 
-<body> 
+<body>
 <header>
     <jsp:include page="module/header.jsp" flush="false" /> 
     
     
-</header>
+</header> 
 <br>
 <br>
 <br>
