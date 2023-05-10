@@ -23,7 +23,7 @@
 <br>
 <main>
   <div class="search-container">
- <form>
+ <form> 
   <input type="text" placeholder="원하는 스터디카페를 검색해보세요...">
   <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
   <div class="round-box">실시간 현황 보기</div>
