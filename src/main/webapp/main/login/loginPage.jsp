@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../js/login_check.js" charset="UTF-8"></script>
 <head>
 <meta charset="UTF-8">
-<title>Flying</title>
+<title>flying</title>
 </head>
 <body>
 <header>

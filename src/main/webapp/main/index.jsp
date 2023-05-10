@@ -15,8 +15,6 @@
 <body>
 <header>
     <jsp:include page="module/header.jsp" flush="false" />
-    
-    
 </header>
 <br>
 <br>
