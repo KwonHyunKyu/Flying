@@ -30,7 +30,7 @@
 </form>
 
   </div>
-  <div class="gallery-container">
+  <div class="gallery-container" onclick="location.href='reservation/seat-reservation.jsp'">
     <!-- 갤러리 예약 영역 -->
     <div class="image-container">
       <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
