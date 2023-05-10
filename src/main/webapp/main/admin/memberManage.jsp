@@ -30,7 +30,7 @@
 			ResultSet rs = null;
 			
 			try {
-				String jdbcDriver = "jdbc:mysql://192.168.219.109:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
+				String jdbcDriver = "jdbc:mysql://124.49.236.21:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
 				String dbUser = "root";
 				String dbPass = "flying";
 						
