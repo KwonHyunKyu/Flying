@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>flying</title>
+<title>Flying</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
   </div>
   <div class="gallery-container">
     <!-- 갤러리 예약 영역 -->
-    <div class="image-container" onclick="location.href=''">
+    <div class="image-container">
       <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">제목1</div>
       <div class="image-description"></div>
