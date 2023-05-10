@@ -117,9 +117,9 @@
 <button onclick="completeReservation()" style="background-color: #34B680; font-size: 24px; padding: 15px 30px; border-radius: 10px; display: block; margin: 20px auto; text-align: center; color: white;">예약 완료</button>
 
 </body>
-
-
-
+ 
+ 
+ 
 
   <footer>
     <jsp:include page="../module/footer.jsp"/>
