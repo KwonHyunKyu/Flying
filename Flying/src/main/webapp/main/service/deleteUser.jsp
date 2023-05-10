@@ -11,8 +11,9 @@
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
+	int a=0;
 
-	String jdbcDriver = "jdbc:mysql://192.168.219.104:3306/flyingdb?characterEncoding=utf-8";
+	String jdbcDriver = "jdbc:mysql://192.168.219.196:3306/flyingdb?characterEncoding=utf-8";
 	String dbUser="root";
 	String dbPass="flying";
 		

@@ -3,7 +3,6 @@
 <% 
 	session.removeAttribute("memberName");
 	session.removeAttribute("memLogin");
-	session.removeAttribute("UserAdmin");
 %>
 <script>
 	alert("로그아웃 처리되었습니다.");
