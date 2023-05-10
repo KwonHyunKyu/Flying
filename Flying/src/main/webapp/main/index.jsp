@@ -14,7 +14,7 @@
 
 <body>
 <header>
-    <jsp:include page="module/header.jsp" flush="false" />
+    <jsp:include page="module/header.jsp" flush="false" /> 
     
     
 </header>
