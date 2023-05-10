@@ -14,7 +14,7 @@
 
 <body>
 <header>
-    <jsp:include page="module/header.jsp" flush="false" />
+    <jsp:include page="module/header.jsp" flush="false" /> 
     
     
 </header>
@@ -32,7 +32,11 @@
   </div>
   <div class="gallery-container">
     <!-- 갤러리 예약 영역 -->
+<<<<<<< HEAD
     <div class="image-container">
+=======
+    <div class="image-container" onclick="location.href='reservation/seat-reservation.jsp'">
+>>>>>>> bcfb50a43bc2c1da3855c6cc4ea1eada61d56a1e
       <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">제목1</div>
       <div class="image-description"></div>
