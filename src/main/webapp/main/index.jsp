@@ -10,20 +10,20 @@
 <title>Flying</title>
 </head>
 <body>
- 
+
 
 <body>
 <header>
-    <jsp:include page="module/header.jsp" flush="false" /> 
+    <jsp:include page="module/header.jsp" flush="false" />
     
     
-</header> 
+</header>
 <br>
 <br>
-<br> 
+<br>
 <main>
   <div class="search-container">
- <form> 
+ <form>
   <input type="text" placeholder="원하는 스터디카페를 검색해보세요...">
   <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
   <div class="round-box">실시간 현황 보기</div>
@@ -32,15 +32,7 @@
   </div>
   <div class="gallery-container">
     <!-- 갤러리 예약 영역 -->
-<<<<<<< HEAD
-<<<<<<< HEAD
     <div class="image-container">
-=======
-    <div class="image-container" onclick="location.href='reservation/seat-reservation.jsp'">
->>>>>>> bcfb50a43bc2c1da3855c6cc4ea1eada61d56a1e
-=======
-    <div class="image-container">
->>>>>>> parent of bf3a9df (관리자기능추가)
       <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">제목1</div>
       <div class="image-description"></div>
