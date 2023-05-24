@@ -30,7 +30,6 @@
 	}
 	
 	session.removeAttribute("memLogin"); // 회원탈퇴로 인한 로그인 유지 세션 삭제.
-	
 	session.removeAttribute("memberName");
 %>
 <script>
