@@ -167,30 +167,30 @@ nav ul li:hover{
         </section>
     </header>
 
-    <nav>
-      <ul id="headerul">
-      <li class="home">
-      <a href="#">메인</a></li>
-        <li class="dropdown">
-          <div class="dropdown-menu">예약하기</div>
-          <div class="dropdown-content">
-            <a href="#">예약하기</a>
-            <a href="#">내 예약 확인하기</a>
-            
-          </div>
-        </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">예약 및 이용 방법</div>
-          <div class="dropdown-content">
-            <a href="#">예약하는법</a>
-             <a href="#">사업자 신청하기 </a>
-          </div>
-        </li>
+  <nav>
+  <ul id="headerul">
+    <li class="home">
+      <a href="#">메인</a>
+    </li>
+    <li class="dropdown">
+      <a href="seatReservation.jsp">
+        <div class="dropdown-menu">예약하기</div>
+      </a>
+      <div class="dropdown-content">
+        <a href="#">예약하기</a>
+        <a href="#">내 예약 확인하기</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <div class="dropdown-menu">예약 및 이용 방법</div>
+      <div class="dropdown-content">
+        <a href="#">예약하는법</a>
+        <a href="#">사업자 신청하기</a>
+      </div>
+    </li>
+  </ul>
+</nav>
 
-     
-        
-      </ul>
-    </nav>
     
 </div>
 </body>
