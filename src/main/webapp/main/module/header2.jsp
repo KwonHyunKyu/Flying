@@ -126,6 +126,29 @@ nav ul li:hover {
   padding: 20px 25px;
 }
 
+.dropdown-content a:hover {
+  background-color: #fff;
+  color: #2A8F57;
+  font-weight: bold;
+  border: 1px solid #2A8F57;
+}
+
+nav ul li:hover{
+  background-color: #fff;
+  border: 1px solid #2A8F57;
+}
+
+.dropdown:hover .dropdown-menu {
+  background-color: #fff;
+  color: #2A8F57;
+}
+.home a {
+  color: #fff;
+}
+.home a:hover {
+  background-color: #2A8F57;
+}
+
 }
 
 </style>
@@ -146,37 +169,25 @@ nav ul li:hover {
 
     <nav>
       <ul id="headerul">
-      <li class="home"><a href="#">Home</a></li>
+      <li class="home">
+      <a href="#">메인</a></li>
         <li class="dropdown">
-          <div class="dropdown-menu">Menu1</div>
+          <div class="dropdown-menu">예약하기</div>
           <div class="dropdown-content">
-            <a href="#">Menu1-1</a>
-            <a href="#">Menu1-2</a>
-            <a href="#">Menu1-3</a>
-            <a href="#">Menu1-4</a>
+            <a href="#">예약하기</a>
+            <a href="#">내 예약 확인하기</a>
+            
           </div>
         </li>
         <li class="dropdown">
-          <div class="dropdown-menu">Menu2</div>
+          <div class="dropdown-menu">예약 및 이용 방법</div>
           <div class="dropdown-content">
-            <a href="#">Menu2-1</a>
-            <a href="#">Menu2-2</a>
-            <a href="#">Menu2-3</a>
-            <a href="#">Menu2-4</a>
+            <a href="#">예약하는법</a>
+             <a href="#">사업자 신청하기 </a>
           </div>
         </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu3</div>
-          <div class="dropdown-content">
-            <a href="#">Menu3-1</a>
-            <a href="#">Menu3-2</a>
-            <a href="#">Menu3-3</a>
-            <a href="#">Menu3-4</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu4</div>
-        </li>
+
+     
         
       </ul>
     </nav>
