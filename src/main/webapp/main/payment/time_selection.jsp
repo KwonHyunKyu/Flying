@@ -18,7 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 300px;
+    margin-bottom:300px;
   }
 
   .time-container {
@@ -26,7 +27,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
 
   .time-option {
@@ -99,7 +100,7 @@
       
           <h2>원하시는 예약 시간을 선택해주세요</h2>
           
-      <div class="time-container">
+<div class="time-container">
   <div class="time-option">
     <button onclick="selectTime(1)">
       1시간
@@ -134,7 +135,7 @@
 <br>
         
         
-        <form action="payment.jsp" method="post">
+        <form action="pay_B.html" method="post">
             <input type="hidden" id="selectedTime" name="selectedTime">
             <input type="submit" value="결제하기">
         </form>

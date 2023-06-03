@@ -1,3 +1,26 @@
+.companyindex{
+	margin-top:50px;
+	margin-bottom:350px;
+	text-align: center;
+	
+}
+
+.image-container-company {
+  margin:50 auto;
+  text-align: center;
+}
+.image-container-company img {
+  height: 400px;
+  border-radius: 30px;
+
+}
+
+.companybtn{
+	font-size:large;
+	width: 150px;
+	height:60px;
+	border-radius: 30px;
+}
 
 form {
 	margin-top: 30px;

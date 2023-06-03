@@ -3,8 +3,8 @@
 <link rel="stylesheet" type="text/css" href="../css/seatReservation.css">
 
 <%
-	String memberID = (String)session.getAttribute("memID");
-	if(memberID == null){ %>
+	String memLogin = (String)session.getAttribute("memLogin");
+	if(memLogin == null){ %>
 	<script>
 	alert("로그인 후 이용해 주십시오.");
 	location.href = '../index.jsp';

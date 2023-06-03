@@ -148,7 +148,7 @@ nav ul li:hover {
 				</div>					
 			<%} else if(memLogin != null){ %> 
 				<div id="loginButton">
-					<%out.print(memId);%>님, 환영합니다! | <a href="service/myPage.jsp">MyPage</a> | <a href="login/logoutProcess.jsp">로그아웃</a>
+					<%out.print(memId);%>님, 환영합니다! | <a href="service/myPage.jsp">MyPage</a> | <a href="login/logoutProcess.jsp">로그아웃</a> | <a href="payment/time_selection.jsp">이용권결제</a>
         		</div>
 			<% } else { %>
             	<div id=loginButton>
