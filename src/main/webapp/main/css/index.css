@@ -1,9 +1,11 @@
 .companyindex{
-	margin-top:50px;
+	margin-top:200px;
 	margin-bottom:350px;
 	text-align: center;
 	
+	
 }
+.search-container {margin-top:100px;}
 
 .image-container-company {
   margin:50 auto;
