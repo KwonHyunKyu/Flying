@@ -56,7 +56,7 @@ nav ul {
   justify-content: center;
 }
 
-nav ul li {
+nav headerul li {
   display: inline-block;
   position: relative;
 }
@@ -127,6 +127,31 @@ nav ul li:hover {
   padding: 20px 25px;
 }
 
+.dropdown-content a:hover {
+  background-color: #fff;
+  color: #2A8F57;
+  font-weight: bold;
+  border: 1px solid #2A8F57;
+}
+
+nav ul li:hover{
+  background-color: #fff;
+  border: 1px solid #2A8F57;
+}
+
+.dropdown:hover .dropdown-menu {
+  background-color: #fff;
+  color: #2A8F57;
+}
+.home a {
+  color: #fff;
+}
+.home a:hover {
+  background-color: #2A8F57;
+}
+
+nav ul li a:hover {
+  color: #2A8F57;
 }
 
 </style>
@@ -158,42 +183,32 @@ nav ul li:hover {
         </section>
     </header>
 
-    <nav>
-      <ul>
-      <li class="home"><a href="#">Home</a></li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu1</div>
-          <div class="dropdown-content">
-            <a href="#">Menu1-1</a>
-            <a href="#">Menu1-2</a>
-            <a href="#">Menu1-3</a>
-            <a href="#">Menu1-4</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu2</div>
-          <div class="dropdown-content">
-            <a href="#">Menu2-1</a>
-            <a href="#">Menu2-2</a>
-            <a href="#">Menu2-3</a>
-            <a href="#">Menu2-4</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu3</div>
-          <div class="dropdown-content">
-            <a href="#">Menu3-1</a>
-            <a href="#">Menu3-2</a>
-            <a href="#">Menu3-3</a>
-            <a href="#">Menu3-4</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <div class="dropdown-menu">Menu4</div>
-        </li>
-        
-      </ul>
-    </nav>
+<nav>
+  <ul id="headerul">
+    <li class="home">
+      <a style="color: #fff;" href="#">메인</a>
+    </li>
+    <li class="dropdown">
+      <a href="seatReservation.jsp">
+        예약하기
+      </a>
+      <div class="dropdown-content">
+        <a href="#">예약하기</a>
+        <a href="#">내 예약 확인하기</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#">
+        예약 및 이용 방법
+      </a>
+      <div class="dropdown-content">
+        <a href="#">예약하는 법</a>
+        <a href="#">사업자 신청하기</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
     
 </div>
 </body>
