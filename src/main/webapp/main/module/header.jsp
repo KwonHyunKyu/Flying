@@ -154,6 +154,10 @@ nav ul li a:hover {
   color: #2A8F57;
 }
 
+ .dropdown:hover > a {
+    color: #2A8F57; /* 호버 시 글자 색 변경 */
+  }
+
 </style>
 <head>
 	<meta charset="UTF-8">
@@ -165,7 +169,7 @@ nav ul li a:hover {
 <div id="headcolor">
     <header>
         <section id="top">
-            <a id="logo" href="index.jsp"><img src="img/mainlogo.png" width="200" height="70" alt="로고"></a>
+            <a id="logo" href="index.jsp"><img src="../img/mainlogo.png" width="200" height="70" alt="로고"></a>
 			<span id="logomessage">당신의 시간은 소중하니까요.<br>비교는 플라잉에 맡겨주세요.</span>
 			<% if(memLogin != null && adminTrue != null) { %>
 				<div id="loginButton">
@@ -182,19 +186,20 @@ nav ul li a:hover {
             <% } %>
         </section>
     </header>
-
 <nav>
   <ul id="headerul">
     <li class="home">
       <a style="color: #fff;" href="#">메인</a>
     </li>
     <li class="dropdown">
-      <a href="seatReservation.jsp">
-        예약하기
+<a href="../service/index.jsp">예약</a> /* 여기에요.. */
+
+
+     
       </a>
       <div class="dropdown-content">
-        <a href="#">예약하기</a>
-        <a href="#">내 예약 확인하기</a>
+        <a href="./service/index.jsp">예약하기</a>
+        <a href="./service/index.jsp">내 예약 확인하기</a>
       </div>
     </li>
     <li class="dropdown">
@@ -208,6 +213,7 @@ nav ul li a:hover {
     </li>
   </ul>
 </nav>
+
 
     
 </div>
