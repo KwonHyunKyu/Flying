@@ -135,7 +135,7 @@
 <br>
         
         
-        <form action="pay_B.html" method="post">
+        <form action="pay.jsp" method="post">
             <input type="hidden" id="selectedTime" name="selectedTime">
             <input type="submit" value="결제하기">
         </form>

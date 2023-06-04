@@ -20,6 +20,8 @@
   <script>
     let selectedSeat = null;
 
+
+    
     function selectSeat(seat) {
       if (selectedSeat !== null) {
         selectedSeat.classList.remove("selected");
@@ -29,6 +31,7 @@
       selectedSeat.classList.add("selected");
 
       document.getElementById("selectedSeat").innerText = selectedSeat.innerText;
+      window.sessionStorage.setItem('seatNum','10');
     }
     function completeReservation() {
       if (selectedSeat === null) {
@@ -36,6 +39,7 @@
       } else {
         // 좌석 예약 처리 및 예약 완료 페이지로 이동
         window.location.href = "reservation-complete.jsp";
+        window.sessionStorage.setItem('seatNum','10');
       }
     }
   </script>
@@ -51,6 +55,7 @@
       selectedlocker.classList.add("selected");
 
       document.getElementById("selectedlocker").innerText = selectedlocker.innerText;
+      window.sessionStorage.setItem('lockNum','selectedlocker');
     }
     function completeReservation() {
       if (selectedlocker === null) {
@@ -58,6 +63,7 @@
       } else {
         // 사물함 예약 처리 및 예약 완료 페이지로 이동
         window.location.href = "reservation-complete.jsp";
+        window.sessionStorage.setItem('lockNum','selectedlocker');
       }
     }
   </script>
@@ -73,13 +79,16 @@
       selectedTime.classList.add("selected");
 
       document.getElementById("selectedTime").innerText = selectedTime.innerText;
+      window.sessionStorage.setItem('timeNum','selectedTime');
     }
     function completeReservation() {
       if (selectedTime === null) {
         alert("이용권을 선택해주세요.");
       } else {
         window.location.href = "reservation-complete.jsp";
+        window.sessionStorage.setItem('timeNum','selectedTime');
       }
+
     }
   </script>
 
@@ -88,7 +97,7 @@
     <jsp:include page="../module/header2.jsp" flush="false" />
   </header>
 
-  <h1 style="margin-top:100px;">원하는 좌석과 사물함을 선택해주세요.</h1>
+  <h1 style="margin-top:150px;">원하는 좌석과 사물함을 선택해주세요.</h1>
 
 <div class="selected-seat-container" style=" justify-content: right; align-items: center; margin-top:0px;">
   <p class="selected-seat" style="font-size: 30px; background-color: #34B680; padding: 15px; border-radius: 15px; width: fit-content;">

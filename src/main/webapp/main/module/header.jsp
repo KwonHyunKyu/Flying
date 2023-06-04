@@ -169,7 +169,7 @@ nav ul li a:hover {
 <div id="headcolor">
     <header>
         <section id="top">
-            <a id="logo" href="index.jsp"><img src="../img/mainlogo.png" width="200" height="70" alt="로고"></a>
+            <a id="logo" href="index.jsp"><img src="img/mainlogo.png" width="200" height="70" alt="로고"></a>
 			<span id="logomessage">당신의 시간은 소중하니까요.<br>비교는 플라잉에 맡겨주세요.</span>
 			<% if(memLogin != null && adminTrue != null) { %>
 				<div id="loginButton">
@@ -192,7 +192,7 @@ nav ul li a:hover {
       <a style="color: #fff;" href="#">메인</a>
     </li>
     <li class="dropdown">
-<a href="../service/index.jsp">예약</a> /* 여기에요.. */
+<a href="../service/index.jsp">예약</a>
 
 
      

@@ -37,6 +37,11 @@
     
   </style>
 </head>
+<script>
+	const getseat = winodw.sessionStorage.getItem('seatNum');
+	const getlock = window.sessionStorage.getItem('lockNum');
+	const gettime = window.sessionStorage.getItem('timeNum');
+</script>
 
 <body>
   <header>
@@ -49,14 +54,12 @@
       <hr>
       <p>스터디카페 이름: 아자아자 24시 스터디카페</p>
        <p>신청인: <%out.print(memId);%>님</p>
-      <p>좌석번호:5번 <strong><span id="selectedSeat"></span></strong></p>
+      <p>좌석번호: <script>document.write(getseat);,</script>번 <strong><span id="selectedSeat"></span></strong></p>
       <p>예약 시간: 16:00~21:00</p>
     </div>
   </div>
 
-  <script>
-    document.getElementById("selectedSeat").textContent = sessionStorage.getItem("selectedSeat");
-  </script>
+
  
   <footer>
     <jsp:include page="../module/footer.jsp"/>
