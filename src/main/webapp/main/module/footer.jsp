@@ -7,8 +7,8 @@
 	}
 	
 	footer #footer_menu_box {
-	    height:40px;
-	    background-color:#00FF80;
+	    height:60px;
+	    background-color:#34B680;
 	}
 	
 	footer #footer_menu {
@@ -32,7 +32,7 @@
 	}
 	
 	footer #footer_menu a:hover {
-	    color:#ffffff;
+	    font-color:#ffffff;
 	}
 	
 	footer #footer_menu a:visited {
