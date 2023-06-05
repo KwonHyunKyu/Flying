@@ -149,7 +149,13 @@ nav ul li:hover{
   background-color: #2A8F57;
 }
 
+nav ul li a:hover {
+  color: #2A8F57;
 }
+
+ .dropdown:hover > a {
+    color: #2A8F57; /* 호버 시 글자 색 변경 */
+  }
 
 </style>
 <head>
@@ -167,24 +173,25 @@ nav ul li:hover{
         </section>
     </header>
 
-  <nav>
+ <nav>
   <ul id="headerul">
     <li class="home">
-      <a href="#">메인</a>
+      <a style="color: #fff;" href="#">메인</a>
     </li>
     <li class="dropdown">
-      <a href="seatReservation.jsp">
-        <div class="dropdown-menu">예약하기</div>
+<a href="../index.jsp">예약</a>
       </a>
       <div class="dropdown-content">
-        <a href="#">예약하기</a>
-        <a href="#">내 예약 확인하기</a>
+         <a href="../index.jsp">예약하기</a>
+        <a href="../index.jsp">내 예약 확인하기</a>
       </div>
     </li>
     <li class="dropdown">
-      <div class="dropdown-menu">예약 및 이용 방법</div>
+      <a href="#">
+        예약 및 이용 방법
+      </a>
       <div class="dropdown-content">
-        <a href="#">예약하는법</a>
+        <a href="#">예약하는 법</a>
         <a href="#">사업자 신청하기</a>
       </div>
     </li>
