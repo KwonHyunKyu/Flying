@@ -19,7 +19,7 @@
 		Statement stmt= null;
 		ResultSet rs = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://124.49.236.21:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
+			String jdbcUrl = "jdbc:mysql://localhost:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
 			String dbUser = "root";
 			String dbPass = "flying";
 				
@@ -68,16 +68,19 @@
 </div>
 
 <% } else{ %>
-  <div class="search-container">
-	 <form>
-	  <input type="text" placeholder="원하는 스터디카페를 검색해보세요...">
-	  <button type="submit" class="search-btn">검색<i class="fa fa-search"></i></button>
-	  <div class="round-box">실시간 현황 보기</div>
-	</form>
+<div class="search-container">
+  <form action="search.jsp" method="GET"> <!-- 검색 결과를 보여줄 페이지로의 액션 추가 -->
+    <input type="text" name="keyword" placeholder="원하는 스터디카페를 검색해보세요...">
+    <button type="submit" class="search-btn">검색<i class="fa fa-search"></i></button>
+  </form>
+</div>
+
+	
   </div>
    <div class="gallery-container" onclick="location.href='reservation/seatReservation.jsp'">
      <!-- 갤러리 예약 영역 -->
-    <div class="image-container">
+   <div class="image-container" onclick="location.href='reservation/seatReservation.jsp'">
+    
       <img src="img/StudyCafeListTum1.jpg" alt="이미지 1">
       <div class="image-title">철썩 스터디카페 홍대점</div>
       <div class="image-description"></div>
