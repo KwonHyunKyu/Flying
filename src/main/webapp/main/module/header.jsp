@@ -192,14 +192,10 @@ nav ul li a:hover {
       <a style="color: #fff;" href="#">메인</a>
     </li>
     <li class="dropdown">
-<a href="../service/index.jsp">예약</a>
-
-
-     
-      </a>
+<a href="./index.jsp">예약</a>
       <div class="dropdown-content">
-        <a href="./service/index.jsp">예약하기</a>
-        <a href="./service/index.jsp">내 예약 확인하기</a>
+        <a href="./index.jsp">예약하기</a>
+        <a href="./index.jsp">내 예약 확인하기</a>
       </div>
     </li>
     <li class="dropdown">
