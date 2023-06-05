@@ -23,7 +23,8 @@
   }
   
   .seat {
-    position: absolute;
+    position:absolute; 
+    transform:translate(500px, 300px);
     width: 40px;
     height: 40px;
     background-color: #eee;
@@ -31,6 +32,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  
+  #footer{
+  	margin-top:800px;
   }
 </style>
 
@@ -40,12 +45,8 @@
   <%@ include file="../module/header2.jsp" %>
 
   <div class="container">
-    <div id="seat-layout"></div>
-  </div>
-
-  <%@ include file="../module/footer.jsp" %>
-
-  <script>
+    <div id="seat-layout">
+      <script>
     // 세션 스토리지에서 저장한 좌석 배치 데이터를 가져옴
     var seatLayoutData = JSON.parse(sessionStorage.getItem('seatLayoutData'));
 
@@ -65,5 +66,14 @@
       seatLayout.appendChild(seat);
     }
   </script>
+    </div>
+  </div>
+
+
+
+<div id="footer">
+  <%@ include file="../module/footer.jsp" %>
+</div>
+
 </body>
 </html>

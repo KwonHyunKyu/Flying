@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!DOCTYPE html>
@@ -77,58 +77,86 @@
 
     var rowNum = Math.ceil(seatNumber / 5); // 5는 한 줄에 표시할 좌석 수입니다.
 
-    for (var i = 0; i; i < rowNum; i++) {
-        for (var j = 0; j < 5; j++) {
-            var seatIndex = i * 5 + j;
+    for (var i = 0; i < seatNumber; i++) {
+      var seat = document.createElement("div");
+      seat.className = "seat";
+      seat.style.left = ((i % 5) * 50) + "px"; // 5는 한 줄에 표시할 좌석 수입니다.
+      seat.style.top = (Math.floor(i / 5) * 50) + "px"; // 5는 한 줄에 표시할 좌석 수입니다.
+      seat.setAttribute("data-seat-id", i); // 좌석 식별자 설정
 
-            if (seatIndex < seatNumber) {
-              var seat = document.createElement('div');
-              seat.className = 'seat';
-              seat.style.left = (j * 50 + 10) + 'px'; // 좌석 간격 및 위치 조정
-              seat.style.top = (i * 50 + 10) + 'px';
+      var seatNumberSpan = document.createElement("span");
+      seatNumberSpan.textContent = (i + 1).toString(); // 좌석 번호 설정
+      seat.appendChild(seatNumberSpan);
 
-              var seatNumberSpan = document.createElement('span');
-              seatNumberSpan.textContent = (seatIndex + 1).toString();
+      seatLayout.appendChild(seat);
+      seatLayoutData.push({ id: i, left: (i % 5) * 50, top: Math.floor(i / 5) * 50 });
+      seat.addEventListener("mousedown", startDrag);
+    }
+  }
 
-              seat.appendChild(seatNumberSpan);
-              seatLayout.appendChild(seat);
+  function saveSeatLayout() {
+    // 좌석 배치 데이터를 세션 스토리지에 저장
+    sessionStorage.setItem('seatLayoutData', JSON.stringify(seatLayoutData));
 
-              // 좌석 배치 데이터에 좌표 정보 추가
-              seatLayoutData.push({
-                left: j * 50 + 10,
-                top: i * 50 + 10
-              });
-            }
-          }
-        }
-      }
+    // 페이지 이동
+    window.location.href = 'reservation-complete.jsp';
+  }
 
-      function saveSeatLayout() {
-        // 좌석 배치 데이터를 세션 스토리지에 저장
-        sessionStorage.setItem('seatLayoutData', JSON.stringify(seatLayoutData));
+  var selectedSeat = null;
+  var initialOffsetX = 0;
+  var initialOffsetY = 0;
 
-        // 페이지 이동
-        window.location.href = 'reservation-complete.jsp';
-      }
-    </script>
-    </head>
-    <body>
-    <%@ include file="../module/header2.jsp" %>
+  function startDrag(event) {
+    selectedSeat = event.target;
+    initialOffsetX = event.clientX - selectedSeat.getBoundingClientRect().left;
+    initialOffsetY = event.clientY - selectedSeat.getBoundingClientRect().top;
 
-    <div class="container">
-      <div id="seat-layout-container">
-        <div id="seat-layout"></div>
-      </div>
+    document.addEventListener("mousemove", dragSeat);
+    document.addEventListener("mouseup", stopDrag);
+  }
 
-      <div id="seat-form">
-        <label for="seat-number" id="seat-number-label">좌석 수:</label>
-        <input type="number" id="seat-number" min="1" value="1">
-      </div>
+  function dragSeat(event) {
+    var containerRect = document.getElementById("seat-layout").getBoundingClientRect();
+    var x = event.clientX - containerRect.left - initialOffsetX;
+    var y = event.clientY - containerRect.top - initialOffsetY;
 
-      <button type="button" id="save-seat-layout-button" onclick="saveSeatLayout()">좌석 배치 저장</button>
-    </div>
+    x = Math.max(0, Math.min(x, containerRect.width - selectedSeat.offsetWidth));
+    y = Math.max(0, Math.min(y, containerRect.height - selectedSeat.offsetHeight));
 
-    <%@ include file="../module/footer.jsp" %>
-    </body>
-    </html>
+    selectedSeat.style.left = x + "px";
+    selectedSeat.style.top = y + "px";
 
+    var seatId = parseInt(selectedSeat.dataset.seatId);
+    seatLayoutData[seatId].left = x;
+    seatLayoutData[seatId].top = y;
+  }
+
+  function stopDrag() {
+    selectedSeat = null;
+
+    document.removeEventListener("mousemove", dragSeat);
+    document.removeEventListener("mouseup", stopDrag);
+  }
+</script>
+
+
+
+<body>
+  <%@ include file="../module/header2.jsp" %>
+
+<div id="seat-layout-container">
+   <div id="seat-layout">
+  <!-- 좌석 배치도를 표현하는 요소 -->
+</div>
+   <form id="seat-form">
+      <h2 for="seat-number" id="seat-number-label">좌석 수:</h2>
+      <input type="number" id="seat-number" min="1" max="100">
+      <button type="button" onclick="generateSeats()">생성</button>
+    </form>
+  </div>
+
+  <button type="button" id="save-seat-layout-button" onclick="saveSeatLayout()">좌석 배치 저장</button>
+
+  <%@ include file="../module/footer.jsp" %>
+
+</body> 

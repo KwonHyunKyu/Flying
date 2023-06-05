@@ -6,161 +6,128 @@
 <head>
   <meta charset="UTF-8">
   <title>Flying</title>
-  
-  
- <style>
-    body {
-      height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
+<style>
+  #seat-layout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* 상단 여백 조정 */
+  }
 
+  #seat-layout {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    position: relative;
+  }
 
-    .seat-container {
-  	display: grid;
-  	grid-template-columns: repeat(5, 1fr);
-  	grid-gap: 10px;
-  	max-width: 500px;
-  	padding: 20px;
-  	background-color: #fff;
-  	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  	margin: 10 auto; /* 가운데 정렬을 위한 수정 */
-	}
-    .seat {
-      width: 100%;
-      height: 50px;
-      background-color: #ccc;
-      display: flex;
-      justify-content: center;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    
-    .selected {
-      background-color: #34B680;
-      color: #fff;
-    }
-    
-    .lounge {
-      grid-column: span 2;
-      height: 110px;
-      background-color: #ffa500;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-    }
-    
-    .water-cooler {
-      grid-column: span 1;
-      height: 60px;
-      background-color: #00aaff;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-    }
-    
-    .button-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-    
-    .button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #34B680;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .button:hover {
-    color: #fff;
-      background-color: #342F2D;
-      margin: 0 auto;
-    }
-  </style>
-  
-  
+  .seat {
+    width: 40px;
+    height: 40px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    position: absolute;
+    cursor: move;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #seat-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* 상단 여백 조정 */
+  }
+
+  #seat-number-label {
+    font-size: 24px; /* 글자 크기 조정 */
+    margin-right: 50px; /* 좌석 수와 입력 필드 사이의 간격 조정 */
+  }
+
+  #save-seat-layout-button,
+  #generate-seats-button {
+    margin-top: 10px; /* 상단 여백 조정 */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #34B680;
+    color: #FFF;
+    border: 1px solid #333;
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    border-radius: 5px; /* 라운드 처리 */
+  }
+
+  #save-seat-layout-button:hover,
+  #generate-seats-button:hover {
+    background-color: #FFF;
+    color: #34B680;
+    border-color: #222;
+  }
+</style>
 <script>
-  // 선택된 좌석 정보를 저장할 변수
-  var selectedSeats = [];
+  var seatLayoutData = [];
 
-  function selectSeat(seat) {
-    seat.classList.toggle("selected"); // 좌석 선택 토글
+  function generateSeats() {
+    var seatNumber = parseInt(document.getElementById("seat-number").value);
+    var seatLayout = document.getElementById("seat-layout");
 
-    // 좌석 선택 시 정보를 변수에 저장
-    var seatId = seat.id;
-    var seatNumber = seat.innerText;
+    seatLayout.innerHTML = "";
+    seatLayoutData = [];
 
-    // 좌석이 선택된 상태인지 확인하여 변수에 추가 또는 제거
-    if (seat.classList.contains("selected")) {
-      selectedSeats.push({ id: seatId, number: seatNumber });
-    } else {
-      selectedSeats = selectedSeats.filter(function (seat) {
-        return seat.id !== seatId;
-      });
-    }
-  }
+    var rowNum = Math.ceil(seatNumber / 5); // 5는 한 줄에 표시할 좌석 수입니다.
 
-  function saveSeats() {
-    // 선택한 좌석 정보를 출력
-    console.log(selectedSeats);
+    for (var i = 0; i; i < rowNum; i++) {
+        for (var j = 0; j < 5; j++) {
+            var seatIndex = i * 5 + j;
 
-    // 선택한 좌석 정보를 현재 페이지에 나타내기
-    var seatInfoContainer = document.createElement("div");
-    seatInfoContainer.className = "selected-seats";
-    seatInfoContainer.style.display = "flex";
-    seatInfoContainer.style.flexWrap = "wrap";
-    seatInfoContainer.style.marginTop = "20px";
+            if (seatIndex < seatNumber) {
+              var seat = document.createElement('div');
+              seat.className = 'seat';
+              seat.style.left = (j * 50 + 10) + 'px'; // 좌석 간격 및 위치 조정
+              seat.style.top = (i * 50 + 10) + 'px';
 
-    var seatInfoText = document.createElement("p");
-    seatInfoText.style.margin = "0";
-    seatInfoText.style.padding = "10px";
-    seatInfoText.style.backgroundColor = "#008000";
-    seatInfoText.style.color = "#fff";
-    seatInfoText.style.fontWeight = "bold";
-    seatInfoText.innerHTML = "Selected Seats: ";
+              var seatNumberSpan = document.createElement('span');
+              seatNumberSpan.textContent = (seatIndex + 1).toString();
 
-    seatInfoContainer.appendChild(seatInfoText);
+              seat.appendChild(seatNumberSpan);
+              seatLayout.appendChild(seat);
 
-    for (var i = 0; i < selectedSeats.length; i++) {
-      var seatNumber = selectedSeats[i].number;
+              // 좌석 배치 데이터에 좌표 정보 추가
+              seatLayoutData.push({
+                left: j * 50 + 10,
+                top: i * 50 + 10
+              });
+            }
+          }
+        }
+      }
 
-      var seatNumberText = document.createElement("span");
-      seatNumberText.style.display = "inline-block";
-      seatNumberText.style.margin = "0 5px";
-      seatNumberText.innerHTML = seatNumber;
+      function saveSeatLayout() {
+        // 좌석 배치 데이터를 세션 스토리지에 저장
+        sessionStorage.setItem('seatLayoutData', JSON.stringify(seatLayoutData));
 
-      seatInfoContainer.appendChild(seatNumberText);
-    }
+        // 페이지 이동
+        window.location.href = 'reservation-complete.jsp';
+      }
+    </script>
+    </head>
+    <body>
+    <%@ include file="../module/header2.jsp" %>
 
-    document.body.appendChild(seatInfoContainer);
-  }
-</script>
-<body>
-  <%@ include file="../module/header2.jsp" %>
+    <div class="container">
+      <div id="seat-layout-container">
+        <div id="seat-layout"></div>
+      </div>
 
-    <div class="seat-container">
-    <% for (int i = 1; i <= 30; i++) { %>
-      <div class="seat" id="seat-<%= i %>" onclick="selectSeat(this)"><%= i %></div>
-    <% } %>
-    
-    <!-- 지리적인 요소 추가 -->
-    <div class="seat lounge" id="lounge" onclick="selectSeat(this)">라운지</div>
-    <div class="seat water-cooler" id="water-cooler" onclick="selectSeat(this)">정수기</div>
-    <!-- 추가적인 지리적인 요소들을 여기에 추가 -->
-  </div>
-  
-  <div class="button-container">
-  <button onclick="saveSeats()" class="button">좌석 저장</button>
-</div>
-  
-  
-  <%@ include file="../module/footer.jsp" %>
+      <div id="seat-form">
+        <label for="seat-number" id="seat-number-label">좌석 수:</label>
+        <input type="number" id="seat-number" min="1" value="1">
+      </div>
 
-</body>
-</html>
+      <button type="button" id="save-seat-layout-button" onclick="saveSeatLayout()">좌석 배치 저장</button>
+    </div>
+
+    <%@ include file="../module/footer.jsp" %>
+    </body>
+    </html>

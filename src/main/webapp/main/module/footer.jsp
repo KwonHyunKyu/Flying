@@ -19,7 +19,7 @@
 	}
 	
 	footer #footer_menu ul {
-	    margin-left:200px;
+	    margin-left:0px;
 	}
 	
 	footer #footer_menu li {

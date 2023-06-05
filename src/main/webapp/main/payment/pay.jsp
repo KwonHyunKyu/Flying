@@ -33,7 +33,7 @@
       paymentWidget.requestPayment({
         orderId: "Flying12",            // 주문 ID(직접 만들어주세요)
         orderName: "당일 이용권 3천원",                 // 주문명
-        successUrl: "https://payment_complete.jsp/success",  // 결제에 성공하면 이동하는 페이지
+        successUrl: "http://localhost:8080/Flying/main/payment/payment_complete.jsp",  // 결제에 성공하면 이동하는 페이지
         failUrl: "https://complete.jsp/fail",        // 결제에 실패하면 이동하는 페이지
         customerEmail: "kh011119@naver.com",
         customerName: "Flying study"
