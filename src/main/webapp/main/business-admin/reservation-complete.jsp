@@ -24,7 +24,7 @@
   
   .seat {
     position:absolute; 
-    transform:translate(500px, 300px);
+    transform:translate(1100px, 400px);
     width: 40px;
     height: 40px;
     background-color: #eee;
@@ -35,7 +35,24 @@
   }
   
   #footer{
-  	margin-top:800px;
+  	margin-top:600px;
+  }
+  
+  #mypagebtn {
+    margin-top: -50px; /* 상단 여백 조정 */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #34B680;
+    color: #FFF;
+    border: 1px solid #333;
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    border-radius: 5px; /* 라운드 처리 */
+  }
+  
+  h1{
+  	margin-top:50px;
+ 	text-align:center;
   }
 </style>
 
@@ -43,7 +60,7 @@
 </head>
 <body>
   <%@ include file="../module/header2.jsp" %>
-
+  <h1>좌석상태 저장이 완료되었습니다.</h1>
   <div class="container">
     <div id="seat-layout">
       <script>
@@ -70,8 +87,8 @@
   </div>
 
 
-
 <div id="footer">
+<button type="button" id="mypagebtn" onclick="location.href='../service/myPage.jsp'">마이페이지로 이동</button>
   <%@ include file="../module/footer.jsp" %>
 </div>
 

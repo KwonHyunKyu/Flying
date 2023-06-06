@@ -25,17 +25,17 @@
 	    
     <section id="log-info">
 		<div class="usrinput">
-			<span>*</span>변경 후 비밀번호<br>
+			<span id="tag">*</span>변경 후 비밀번호<br>
 			<input type="text" id="input1" name="updatePassword" maxlength="30" >
 		</div>
 		
 		<div class="usrinput">
-			<span>*</span>변경 후 비밀번호 확인<br>
+			<span id="tag">*</span>변경 후 비밀번호 확인<br>
 			<input type="text" id="input1"  maxlength="30" >
 		</div>
 		            
         <div class="usrinput">
-			<span>*</span>변경 후 이름<br> 
+			<span id="tag">*</span>변경 후 이름<br> 
 			<input type="text" id="input1" name="updateName" maxlength="10">
 		</div>
 		<div class="usrinput">
@@ -49,7 +49,7 @@
 		</div>
 		    
 		<div class="notice">
-			<span>*</span> 는 필수입니다.
+			<span id="tag">*</span> 는 필수입니다.
 		</div>
 		 
     </section>

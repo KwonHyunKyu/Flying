@@ -64,12 +64,21 @@
     color: #34B680;
     border-color: #222;
   }
+  
+  #footer{
+  	margin-top:400px;
+  }
 </style>
 <script>
   var seatLayoutData = [];
 
   function generateSeats() {
     var seatNumber = parseInt(document.getElementById("seat-number").value);
+    if(seatNumber>30)
+    {
+    	alert("좌석은 30개이하만 지정할 수 있습니다.")
+    	return;
+    }
     var seatLayout = document.getElementById("seat-layout");
 
     seatLayout.innerHTML = "";
@@ -156,7 +165,7 @@
   </div>
 
   <button type="button" id="save-seat-layout-button" onclick="saveSeatLayout()">좌석 배치 저장</button>
-
+<footer id ='footer'>
   <%@ include file="../module/footer.jsp" %>
-
+</footer>
 </body> 

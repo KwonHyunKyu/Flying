@@ -19,7 +19,7 @@
 		Statement stmt= null;
 		ResultSet rs = null;
 		try {
-			String jdbcUrl = "jdbc:mysql://localhost:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
+			String jdbcUrl = "jdbc:mysql://124.49.236.21:3306/flyingdb?useUnicode=true&CharacterEncoding=utf-8";
 			String dbUser = "root";
 			String dbPass = "flying";
 				
@@ -48,7 +48,6 @@
 %>
 <!DOCTYPE html>
 <html>
-
 <head>
 <header>
     <jsp:include page="module/header.jsp" flush="false" />
