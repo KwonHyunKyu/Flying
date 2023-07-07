@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DeleteBean {
+public class UpdateBean {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -44,17 +44,22 @@ public class DeleteBean {
 		}
 	}
 	
-	public void myPageDelete(String memId) {
+	public void myPageUpdate(String pw, String name, String phone, String email, String id) {
 		connect();
-		String sql ="delete from membertable where memberid= '" + memId + "'";
-		try {		
+		String sql ="UPDATE membertable SET password=?, membername=?, phonenumber=?, email=? where memberid=?";
+		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pw); // 입력된 수정 정보들
+			pstmt.setString(2, name);
+			pstmt.setString(3, phone);
+			pstmt.setString(4, email);
+			pstmt.setString(5, id);
 			pstmt.executeUpdate();
-		}
-		catch(SQLException e) {
-			e.printStackTrace();	
-		}
-		finally {
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			disconnect();
 		}
 	}

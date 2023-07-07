@@ -1,35 +1,15 @@
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="java.sql.*" %>
+<jsp:useBean class="flyingMember.MemberInfo" id="memInfo" scope="session"/>
+<jsp:useBean class="flyingMember.SearchBean" id="memSearch" scope="session"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="../css/myPage.css">
 <% 
 	String memName = (String)session.getAttribute("memberName");
 	String memberID = (String)session.getAttribute("memID");
-%>
-
-<%
-	Class.forName("com.mysql.jdbc.Driver");
-		
-	Connection conn = null;
-	PreparedStatement pstmt= null;
-	ResultSet rs = null;
-	
-	String sql ="select * from membertable where memberid=?";
-	
-	String jdbcDriver = "jdbc:mysql://124.49.236.21:3306/flyingdb?"+
-	"characterEncoding=utf-8";
-	String dbUser = "root";
-	String dbPass = "flying";
-	
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-		pstmt= conn.prepareStatement(sql);
-		pstmt.setString(1, memberID);
-		rs = pstmt.executeQuery();
-		while(rs.next()) {
+	memInfo = memSearch.memberSearch(memberID);
 %>	
 
 <!DOCTYPE html>
@@ -60,15 +40,15 @@
 		<tbody>
 			<tr>
 				<th scope="row">회원이름</th>
-				<td><%= rs.getString("membername") %></td>
+				<td><%= memInfo.getMemberName() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원아이디</th>
-				<td><%= rs.getString("memberid") %></td>
+				<td><%= memInfo.getMemberId() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원비밀번호</th>
-				<td><%= rs.getString("password") %></td>
+				<td><%= memInfo.getMemberPassword() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원등급</th>
@@ -76,27 +56,16 @@
 			</tr>
 			<tr>
 				<th scope="row">회원타입</th>
-				<td><%= rs.getString("membertype") %></td>
+				<td><%= memInfo.getMemberType() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원전화번호</th>
-				<td><%= rs.getString("phonenumber") %></td>
+				<td><%= memInfo.getPhoneNumber() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원이메일</th>
-				<td><%= rs.getString("email") %></td>
+				<td><%= memInfo.getMemberEmail() %></td>
 			</tr>
-		<% } %>
-	  
-<% } catch(SQLException ex) {
-		out.println(ex.getMessage());
-		ex.printStackTrace();
-	} finally {
-		if (rs != null) try { rs.close();} catch(SQLException ex) {}
-		if (pstmt != null) try { pstmt.close();} catch(SQLException ex) {}
-		if (conn != null) try { conn.close();} catch(SQLException ex) {}
-	}
-%>
 		</tbody>
 	</table>
 	<div id="allButton">	

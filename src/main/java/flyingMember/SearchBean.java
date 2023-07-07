@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.cj.xdevapi.Statement;
+
 public class SearchBean {
 	
 	Connection conn = null;
@@ -47,25 +49,52 @@ public class SearchBean {
 		}
 	}
 	
-	// 특정 회원 정보
-	public MemberInfo memberSearch(String memId) {
+	public MemberInfo adminSearch() {
 		connect();
 		
-		String sql = "select * from membertable where memberid=?";
+		String sql = "select * from membertable order by memberid";
 		MemberInfo meminfo = new MemberInfo();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,memId);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				rs.getString("memberid");
+				rs.getString("password"); 
+				rs.getString("membername"); 
+				rs.getString("membertype");
+			    rs.getString("phonenumber"); 
+			    rs.getString("email");
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return meminfo;
+		
+	}
+	
+	// 특정 회원 정보
+	public MemberInfo memberSearch(String memId) {
+		connect();
+		
+		String sql = "select * from membertable where memberid='" + memId + "'";
+		MemberInfo meminfo = new MemberInfo();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			
 			rs.next();
-			meminfo.setMemberId(rs.getString("memberId"));
-			meminfo.setMemberPassword(rs.getString("memberPassword"));
-			meminfo.setMemberName(rs.getString("memberName"));
-			meminfo.setMemberType(rs.getString("memberType"));
-			meminfo.setPhoneNumber(rs.getString("phoneNumber"));
-			meminfo.setMemberEmail(rs.getString("memberEmail"));
+			meminfo.setMemberId(rs.getString("memberid"));
+			meminfo.setMemberPassword(rs.getString("password"));
+			meminfo.setMemberName(rs.getString("membername"));
+			meminfo.setMemberType(rs.getString("membertype"));
+			meminfo.setPhoneNumber(rs.getString("phonenumber"));
+			meminfo.setMemberEmail(rs.getString("email"));
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,6 +103,80 @@ public class SearchBean {
 		}
 		return meminfo;
 	}
+	
+	public String indexSearch (String memId){
+		String memType = null;
+		connect();
+		String sql ="select * from membertable where memberid = '" + memId + "'";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			memType = rs.getString("membertype");
+			rs.close();
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();	
+		}
+		finally {
+			disconnect();
+		}
+		return memType;
+	}
+	
+	public int login(String memId, String pass) {
+		int check=-1;
+		connect();
+		String sql ="select * from membertable where memberid = '" + memId + "'";
+		
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(pass.equals(rs.getString("password"))) {
+					check=1;
+				}
+				else {
+					check=0;
+				}
+			rs.close();
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();	
+		}
+		finally {
+			disconnect();
+		}
+		
+		return check;
+	}
+	
+	public String nameSearch (String memId){
+		String memName = null;
+		connect();
+		String sql ="select * from membertable where memberid = '" + memId + "'";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			memName = rs.getString("membername");
+			rs.close();
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();	
+		}
+		finally {
+			disconnect();
+		}
+		return memName;
+	}
+	
 	
 	// 모든 회원 목록
 	public ArrayList<MemberInfo> memberList() {
@@ -87,13 +190,13 @@ public class SearchBean {
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MemberInfo meminfo = new MemberInfo();
-				
-				meminfo.setMemberId(rs.getString("memberId"));
-				meminfo.setMemberPassword(rs.getString("memberPassword"));
-				meminfo.setMemberName(rs.getString("memberName"));
-				meminfo.setMemberType(rs.getString("memberType"));
-				meminfo.setPhoneNumber(rs.getString("phoneNumber"));
-				meminfo.setMemberEmail(rs.getString("memberEmail"));
+				meminfo.setMemberId(rs.getString("memberid"));
+				meminfo.setMemberPassword(rs.getString("password"));
+				meminfo.setMemberName(rs.getString("membername"));
+				meminfo.setMemberType(rs.getString("membertype"));
+				meminfo.setPhoneNumber(rs.getString("phonenumber"));
+				meminfo.setMemberEmail(rs.getString("email"));
+				memberDB.add(meminfo);
 			}
 			rs.close();
 			
