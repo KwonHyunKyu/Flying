@@ -41,12 +41,21 @@
 </div>
 
 <% } else{ %>
-<div class="search-container">
-  <form action="search.jsp" method="GET"> <!-- 검색 결과를 보여줄 페이지로의 액션 추가 -->
-    <input type="text" name="keyword" placeholder="원하는 스터디카페를 검색해보세요...">
-    <button type="submit" class="search-btn">검색<i class="fa fa-search"></i></button>
-  </form>
+
+
+<div class="banner-container">
+  <div class="banner banner-1"></div>
+  <h1 class="banner-text">공부가 잘되는 공간 플라잉</h1>
 </div>
+
+
+
+   <div class="search-container">
+    <form action="search.jsp" method="GET">
+      <input type="text" name="keyword" placeholder="원하는 스터디카페를 검색해보세요...">
+      <button type="submit" class="search-btn">검색<i class="fa fa-search"></i></button>
+    </form>
+  </div>
 
 	
   </div>
