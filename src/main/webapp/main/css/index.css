@@ -255,10 +255,17 @@ button[type="submit"] {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: rgb(255, 128, 128); /* Text color */
-  background-color: #177641; /* Background color */
+  color: rgb(255, 128, 128); /* 텍스트 색상 */
+  background-color: #177641; /* 배경 색상 */
   opacity: 1;
+
+
+  background-image: url('bg.png');
+  background-size: cover; /* 배경 이미지를 컨테이너에 맞게 확대/축소 */
+  background-position: center; /* 배경 이미지를 가운데 정렬 */
+  background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
 }
+
 
 .banner-container .banner.banner-1 {
   opacity: 1;
