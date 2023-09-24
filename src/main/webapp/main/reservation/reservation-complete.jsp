@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<%@ page import ="java.sql.*"  %>
+<jsp:useBean class="flyingMember.InsertBean" id="reserInsert" scope="session"/>
+<jsp:useBean class="flyingMember.ReserveInfo" id="reserveInfo" scope="session"/>
+<jsp:setProperty name="reserveInfo" property="*" />
 <%
   String memId = (String)session.getAttribute("memID");
+  String seatNum =  request.getParameter("selectedSeat");
+  String useTime =  request.getParameter("selectedTime");
+  String locker =  request.getParameter("selectedlocker");
+  String cafeId = "1";
+  String status = "0";
+  reserInsert.reserveInsert(memId,cafeId,seatNum,locker,useTime,status);
 %>
 <!DOCTYPE html>
 <html>
@@ -9,11 +19,26 @@
   <meta charset="UTF-8">
   <title>Flying</title>
 <style>
+
+	#button1 {
+		background-color:  #408080; /* Green */
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+		cursor: pointer;
+		border-radius: 12px;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+		font-weight: 800;
+	}
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 50vh;
     text-align: center;
   }
   
@@ -52,19 +77,17 @@ hr {
   width: 40%;
   background-color: #00FF80; /* 선의 색상을 #00FF80으로 설정 */
 }
+
+#membutton1 {
+	display:inline-block; 
+	text-align:center;
+	margin: 0 auto;
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+}
 </style>
-
-
 </head>
-<script>
-  const getseat = sessionStorage.getItem('seatNum');
-  const getlock = sessionStorage.getItem('lockNum');
-  const gettime = sessionStorage.getItem('timeNum');
-  
-  // completeReservation 함수에서 사용할 선택된 좌석 정보
-  const selectedSeat = sessionStorage.getItem('selectedSeat');
-</script>
-
 <body>
   <header>
     <jsp:include page="../module/header2.jsp" flush="false" />
@@ -77,11 +100,16 @@ hr {
     <hr>
     <p>스터디카페 이름: 아자아자 24시 스터디카페</p>
     <p>신청인: <%out.print(memId);%>님</p>
-    <p>좌석번호: <script>document.write(getseat);</script>번 <strong><span id="selectedSeat"></span></strong></p>
-    <p>예약 시간: 16:00~21:00</p>
+    <p>좌석번호: <%= seatNum %>번</p>
+    <p>이용권: <%=useTime %></p>
+    <p>사물함: <%=locker %>번 사물함</p>
   </div>
 </div>
-
+ <div id="membutton1">
+	 <form action="../index.jsp">
+	 	<input type="submit" value="메인화면" id="button1">
+	 </form>
+</div>
 
   <footer>
     <jsp:include page="../module/footer.jsp"/>

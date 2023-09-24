@@ -3,6 +3,7 @@
 <%@ page import="java.sql.*" %>
 <jsp:useBean class="flyingMember.MemberInfo" id="memInfo" scope="session"/>
 <jsp:useBean class="flyingMember.SearchBean" id="memSearch" scope="session"/>
+<jsp:useBean class="flyingMember.ReserveInfo" id="reserveInfo" scope="session"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="../css/myPage.css">
@@ -10,6 +11,7 @@
 	String memName = (String)session.getAttribute("memberName");
 	String memberID = (String)session.getAttribute("memID");
 	memInfo = memSearch.memberSearch(memberID);
+	reserveInfo = memSearch.reservationSearch(memberID);
 %>	
 
 <!DOCTYPE html>
@@ -87,6 +89,52 @@
 		</script>
 		<input type="submit" value="flying탈퇴" id="button2"  onclick="button_event();">
 	</div>
+	
+	<h1><%out.print(memName);%>님의 예약내역</h1>
+	<div id="tableLayout">
+	<table class="myInfo">
+		<thead>
+			<tr>
+				<th scope="cols">회원정보</th>
+				<th scope="cols">내용</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<th scope="row">회원아이디</th>
+				<td><%= reserveInfo.getMemberId() %></td>
+			</tr>
+			<tr>
+				<th scope="row">카페아이디</th>
+				<td><%= reserveInfo.getCafeId() %></td>
+			</tr>
+			<tr>
+				<th scope="row">좌석번호</th>
+				<td><%= reserveInfo.getSeatNumber() %></td>
+			</tr>
+			<tr>
+				<th scope="row">사물함번호</th>
+				<td><%= reserveInfo.getLockerNumber() %></td>
+			</tr>
+			<tr>
+				<th scope="row">이용권</th>
+				<td><%= reserveInfo.getUseTime() %></td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="membutton2">
+		<script type="text/javascript">
+		function button_event() {
+			if (confirm("예약을 취소하시겠습니까?") == true)    
+				location.href = 'deleteReserve.jsp';
+			else
+			    return;
+		}
+		</script>
+		<input type="submit" value="예약취소" id="button2"  onclick="button_event();">
+	</div>
+	
 </div>
 <footer>
 	<jsp:include page="../module/footer.jsp" />

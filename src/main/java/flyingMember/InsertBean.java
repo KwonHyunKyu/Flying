@@ -55,4 +55,30 @@ public class InsertBean {
 		}
 		return true;
 	}
+	
+	public boolean reserveInsert(String a, String b, String c, String d, String f, String g) {
+		connect();
+		
+		String sql = "insert into reservationtable values (?, ?, ?, ?, ?, ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, a);
+			pstmt.setString(2, b);
+			pstmt.setString(3, c);
+			pstmt.setString(4, d);
+			pstmt.setString(5, f);
+			pstmt.setString(6, g);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			if(rs != null) try { rs.close(); } catch(SQLException e) {}
+			if(pstmt != null) try { pstmt.close(); } catch(SQLException e) {}
+			if(conn != null) try { conn.close(); } catch(SQLException e) {}
+		}
+		return true;
+	}
 }

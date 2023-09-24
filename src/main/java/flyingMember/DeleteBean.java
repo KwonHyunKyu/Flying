@@ -13,7 +13,7 @@ public class DeleteBean {
 	// MySql 연결
 	String jdbcDriver = "com.mysql.cj.jdbc.Driver";
 	String jdbcUrl = "jdbc:mysql://124.49.236.21:3306/flyingdb?serverTimezone=UTC";
-	
+	//124.49.236.21
 	// DB 연결
 	void connect() {
 		try {
@@ -47,6 +47,21 @@ public class DeleteBean {
 	public void myPageDelete(String memId) {
 		connect();
 		String sql ="delete from membertable where memberid= '" + memId + "'";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();	
+		}
+		finally {
+			disconnect();
+		}
+	}
+	
+	public void myPageReserveDelete(String memId) {
+		connect();
+		String sql ="delete from reservationtable where memberid= '" + memId + "'";
 		try {		
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();

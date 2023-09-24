@@ -104,6 +104,31 @@ public class SearchBean {
 		return meminfo;
 	}
 	
+	public ReserveInfo reservationSearch(String memId) {
+		connect();
+		
+		String sql = "select * from reservationtable where memberid='" + memId + "'";
+		ReserveInfo reserveinfo = new ReserveInfo();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.next();
+			reserveinfo.setMemberId(rs.getString("memberid"));
+			reserveinfo.setCafeId(rs.getString("cafeid"));
+			reserveinfo.setSeatNumber(rs.getString("seatnumber"));
+			reserveinfo.setLockerNumber(rs.getString("lockernumber"));
+			reserveinfo.setUseTime(rs.getString("time"));
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return reserveinfo;
+	}
+	
 	public String indexSearch (String memId){
 		String memType = null;
 		connect();
@@ -227,5 +252,30 @@ public class SearchBean {
 			if(conn != null) try { conn.close(); } catch(SQLException e) {}
 		}
 		return result;
+	}
+	
+	public MemberInfo SeatSearch() {
+		connect();
+		
+		String sql = "select * from reservetable";
+		MemberInfo meminfo = new MemberInfo();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String seatNumber = rs.getString("seat_number");
+				String status = rs.getString("status"); 
+
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return meminfo;
+		
 	}
 }

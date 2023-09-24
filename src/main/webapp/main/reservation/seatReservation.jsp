@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="../css/seatReservation.css">
-
+<jsp:useBean class="flyingMember.SearchBean" id="memSearch" scope="session"/>
+<jsp:useBean class="flyingMember.ReserveInfo" id="reserveInfo" scope="session"/>
 <%
 	String memLogin = (String)session.getAttribute("memLogin");
 	if(memLogin == null){ %>
@@ -18,32 +19,21 @@
   <meta charset="UTF-8">
   <title>Flying</title>
   <script>
-    let selectedSeat = null;
-
-
-    
+    var selectedSeat = null;
     function selectSeat(seat) {
       if (selectedSeat !== null) {
         selectedSeat.classList.remove("selected");
+       
       }
 
       selectedSeat = seat;
       selectedSeat.classList.add("selected");
 
       document.getElementById("selectedSeat").innerText = selectedSeat.innerText;
-      window.sessionStorage.setItem('seatNum','10');
+      document.getElementById("useSeat").value = selectedSeat.innerText;
     }
-    function completeReservation() {
-      if (selectedSeat === null) {
-        alert("좌석을 선택해주세요.");
-      } else {
-        // 좌석 예약 처리 및 예약 완료 페이지로 이동
-        window.location.href = "reservation-complete.jsp";
-        window.sessionStorage.setItem('seatNum','10');
-      }
-    }
-  </script>
-  <script>
+    </script>
+    <script>
     let selectedlocker = null;
 
     function selectlocker(locker) {
@@ -55,7 +45,7 @@
       selectedlocker.classList.add("selected");
 
       document.getElementById("selectedlocker").innerText = selectedlocker.innerText;
-      window.sessionStorage.setItem('lockNum','selectedlocker');
+      document.getElementById("uselocker").value = selectedlocker.innerText;
     }
     function completeReservation() {
       if (selectedlocker === null) {
@@ -66,8 +56,9 @@
         window.sessionStorage.setItem('lockNum','selectedlocker');
       }
     }
-  </script>
-   <script>
+
+    </script>
+    <script>
     let selectedTime = null;
 
     function selectTime(time) {
@@ -79,8 +70,9 @@
       selectedTime.classList.add("selected");
 
       document.getElementById("selectedTime").innerText = selectedTime.innerText;
-      window.sessionStorage.setItem('timeNum','selectedTime');
+      document.getElementById("useTime").value = selectedTime.innerText;
     }
+    /*
     function completeReservation() {
       if (selectedTime === null) {
         alert("이용권을 선택해주세요.");
@@ -90,6 +82,7 @@
       }
 
     }
+    */
   </script>
 
 <body>
@@ -207,9 +200,12 @@
 
 </table>
 </div>
-	<button onclick="completeReservation()" style="background-color: #34B680; font-size: 24px; padding: 15px 30px; border-radius: 10px; display: block; margin: 20px auto; text-align: center; color: white;">예약 완료</button>
-
- 
+<form action="reservation-complete.jsp" method="get" id="myForm">
+	<input type="hidden" id="useSeat" name="selectedSeat">
+	<input type="hidden" id="useTime" name="selectedTime">
+	<input type="hidden" id="uselocker" name="selectedlocker">
+	<input type="submit" style="background-color: #34B680; font-size: 24px; padding: 15px 30px; border-radius: 10px; display: block; margin: 20px auto; text-align: center; color: white;" value="예약 완료">
+</form>
 
 <footer>
     <jsp:include page="../module/footer.jsp"/>
