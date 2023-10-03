@@ -133,7 +133,8 @@
         }
 
         .home a:hover {
-            background-color: #2A8F57;
+            color: #2A8F57;
+            font-weight: bold;
         }
 
         /* 호버 시 글자 색 변경 */
@@ -176,7 +177,7 @@
 <nav>
   <ul id="headerul">
     <li class="home">
-      <a style="color: #333333;" href="#">메인</a>
+      <a href="#">메인</a>
     </li>
     
     <li class="dropdown">
