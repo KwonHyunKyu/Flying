@@ -44,9 +44,12 @@
 
 
 <div class="banner-container">
-  <div class="banner banner-1"></div>
-  <h1 class="banner-text">공부가 잘되는 공간 플라잉</h1>
+  <h1 class="banner">
+    <img src="img/banner.jpg" alt="공부가 잘되는 공간 플라잉 이미지">
+    
+  </h1>
 </div>
+
 
 
 
