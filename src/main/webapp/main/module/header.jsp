@@ -179,7 +179,16 @@
     <li class="home">
       <a href="#">메인</a>
     </li>
+<<<<<<< Updated upstream
     
+=======
+<<<<<<< HEAD
+    <li class="pay">
+<a href="./payment/paysystem1.jsp">결제 시스템</a>
+=======
+    
+>>>>>>> 6bfe842e8839847e8d436579aa5732a4391dc047
+>>>>>>> Stashed changes
     <li class="dropdown">
       <a href="./index.jsp">회사 소개</a>
       <div class="dropdown-content">

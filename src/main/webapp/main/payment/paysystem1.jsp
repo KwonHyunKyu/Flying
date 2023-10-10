@@ -110,7 +110,7 @@
 <span class="price">💲3000</span>
   </div>
   <div class="time-option">
-<button onclick="location.href='Pay_C.html'" />
+<button onclick="location.href='Pay_C_1.html'" />
 3시간
 <span class="price">💲5000</span>
   </div>

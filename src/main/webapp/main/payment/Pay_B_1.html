@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <script src="https://js.tosspayments.com/v1/payment"></script>
-    <style>
+        <style>
 h1{
   text-align: center;
   font-family: arial;
@@ -84,9 +85,9 @@ footer tr td {
 <hr>
     <section>
       <!-- ... -->
-      <span>당일권 1시간</span>
-      <span>1,500 원</span>
-      <button id="payment-button"><span style="color : blue; font-size : 15px;">1,500원 결제하기</span></button>
+      <span>당일권 2시간</span>
+      <span>3,000 원</span>
+      <button id="payment-button"><span style="color : blue; font-size : 15px;">3,000원 결제하기</span></button>
     </section>
     <script>
       var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq'
@@ -94,11 +95,11 @@ footer tr td {
       var button = document.getElementById('payment-button') // 결제하기 버튼
       button.addEventListener('click', function () {
         tossPayments.requestPayment('카드', {
-          amount: 1500,
+          amount: 4000,
           orderId: 'flying12',
-          orderName: '1시간 이용권',
+          orderName: '2시간 이용권',
           customerName: 'Flying',
-          successUrl: 'http://localhost:8080/complete.jsp',
+          successUrl: 'http://localhost:8080/success',
           failUrl: 'http://localhost:8080/fail',
         })
       })
