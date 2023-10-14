@@ -128,7 +128,7 @@ public class SearchBean {
 		}
 		return reserveinfo;
 	}
-	
+
 	public String indexSearch (String memId){
 		String memType = null;
 		connect();
@@ -231,6 +231,33 @@ public class SearchBean {
 			disconnect();
 		}
 		return memberDB;
+	}
+	
+	public ArrayList<ReserveInfo> reserveList(int cafeId) {
+		connect();
+		
+		ArrayList<ReserveInfo> reserveDB = new ArrayList<ReserveInfo>();
+		String sql = "select * from reservationtable where cafeid='" + cafeId + "'";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReserveInfo reserveinfo = new ReserveInfo();
+				reserveinfo.setMemberId(rs.getString("memberid"));
+				reserveinfo.setCafeId(rs.getString("cafeid"));
+				reserveinfo.setSeatNumber(rs.getString("seatnumber"));
+				reserveinfo.setLockerNumber(rs.getString("lockernumber"));
+				reserveDB.add(reserveinfo);
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return reserveDB;
 	}
 	
 	public boolean confirmId(String uid) {
