@@ -1,21 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="../css/seatReservation.css">
+<%@ page import="java.util.ArrayList" %>
+<%@page import="flyingMember.ReserveInfo"%>
+<jsp:useBean class="flyingMember.ReservationCompare" id="compare" scope="session"/>
 <jsp:useBean class="flyingMember.SearchBean" id="memSearch" scope="session"/>
 <jsp:useBean class="flyingMember.ReserveInfo" id="reserveInfo" scope="session"/>
 <%
 	String memLogin = (String)session.getAttribute("memLogin");
+	ArrayList<ReserveInfo> reservelist = memSearch.reserveList(1);
 	if(memLogin == null){ %>
 	<script>
 	alert("로그인 후 이용해 주십시오.");
 	location.href = '../index.jsp';
 	</script>		
-<% 
+<%
 	}
+	
+	int[] seatArray = new int[40];
+	int[] lockerArray = new int[30];
+	
+	for(int i=0; i < reservelist.size(); i++){
+		seatArray[i] = Integer.parseInt(reservelist.get(i).getSeatNumber());
+		lockerArray[i] = Integer.parseInt(reservelist.get(i).getLockerNumber());
+	}
+		
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+	.disabled {
+	    background-color: gray;
+	    color: white;
+	    cursor: not-allowed; /* 커서를 기본으로 변경하여 클릭을 방지 */
+	}
+	</style>
   <meta charset="UTF-8">
   <title>Flying</title>
   <script>
@@ -72,24 +93,65 @@
       document.getElementById("selectedTime").innerText = selectedTime.innerText;
       document.getElementById("useTime").value = selectedTime.innerText;
     }
-    /*
-    function completeReservation() {
-      if (selectedTime === null) {
-        alert("이용권을 선택해주세요.");
-      } else {
-        window.location.href = "reservation-complete.jsp";
-        window.sessionStorage.setItem('timeNum','selectedTime');
-      }
-
-    }
-    */
   </script>
+<script>
+    var selectedSeat = null;
 
+    function selectSeat(seat) {
+        if (selectedSeat !== null) {
+            selectedSeat.classList.remove("selected");
+        }
+
+        // 좌석 번호를 가져오기
+        var seatNumber = parseInt(seat.innerText);
+
+        if (seatNumber === 5 || seatNumber === 10 || seatNumber === 15) {
+            // 좌석 번호가 5, 10, 15인 경우 비활성화 및 스타일 변경
+            seat.classList.add("disabled");
+            alert("이 좌석은 선택할 수 없습니다.");
+        } else {
+            selectedSeat = seat;
+            selectedSeat.classList.add("selected");
+
+            document.getElementById("selectedSeat").innerText = selectedSeat.innerText;
+            document.getElementById("useSeat").value = selectedSeat.innerText;
+        }
+    }
+</script>
+<script>
+    function selectSeat(seat) {
+        if (seat.classList.contains("disabled")) {
+            alert("이 좌석은 선택할 수 없습니다.");
+        } else {
+            if (selectedSeat !== null) {
+                selectedSeat.classList.remove("selected");
+            }
+            selectedSeat = seat;
+            selectedSeat.classList.add("selected");
+            document.getElementById("selectedSeat").innerText = selectedSeat.innerText;
+            document.getElementById("useSeat").value = selectedSeat.innerText;
+        }
+    }
+    
+    function selectlocker(locker) {
+        if (locker.classList.contains("disabled")) {
+            alert("이 사물함은 선택할 수 없습니다.");
+        } else {
+            if (selectedlocker !== null) {
+                selectedlocker.classList.remove("selected");
+            }
+            selectedlocker = locker;
+            selectedlocker.classList.add("selected");
+
+            document.getElementById("selectedlocker").innerText = selectedlocker.innerText;
+            document.getElementById("uselocker").value = selectedlocker.innerText;
+        }
+    }
+</script>
 <body>
   <header>
     <jsp:include page="../module/header2.jsp" flush="false" />
   </header>
-
   <h1 style="margin-top:150px;">원하는 좌석과 사물함을 선택해주세요.</h1>
 
 <div class="selected-seat-container" style=" justify-content: right; align-items: center; margin-top:0px;">
@@ -113,47 +175,47 @@
         </tr>
         <tr>
         </tr>
-        <td onclick="selectSeat(this)">1</td>
-        <td onclick="selectSeat(this)">2</td>
-        <td onclick="selectSeat(this)">3</td>
-        <td onclick="selectSeat(this)">4</td>
-        <td onclick="selectSeat(this)">5</td>
-        <td onclick="selectSeat(this)">6</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 1)%>">1</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 2)%>">2</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 3)%>">3</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 4)%>">4</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 5)%>">5</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 6)%>">6</td>
         <td colspan="5" style="background-color: #FF8C0A;">카운터</td>
         </tr>
         <tr>
-        <td onclick="selectSeat(this)">7</td>
-        <td onclick="selectSeat(this)">8</td>
-        <td onclick="selectSeat(this)">9</td>
-        <td onclick="selectSeat(this)">10</td>
-        <td onclick="selectSeat(this)">11</td>
-        <td onclick="selectSeat(this)">12</td> 
-        <td onclick="selectSeat(this)">13</td>
-        <td onclick="selectSeat(this)">14</td>
-        <td onclick="selectSeat(this)">15</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 7)%>">7</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 8)%>">8</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 9)%>">9</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 10)%>">10</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 11)%>">11</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 12)%>">12</td> 
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 13)%>">13</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 14)%>">14</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 15)%>">15</td>
         <td rowspan="3" style="background-color: #9F814F;">사물함</td>
         </tr>
         <tr>
-        <td onclick="selectSeat(this)">16</td>
-        <td onclick="selectSeat(this)">17</td>
-        <td onclick="selectSeat(this)">18</td>
-        <td onclick="selectSeat(this)">19</td>
-        <td onclick="selectSeat(this)">20</td>
-        <td onclick="selectSeat(this)">21</td>
-        <td onclick="selectSeat(this)">22</td>
-        <td onclick="selectSeat(this)">23</td>
-        <td onclick="selectSeat(this)">24</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 16)%>">16</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 17)%>">17</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 18)%>">18</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 19)%>">19</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 20)%>">20</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 21)%>">21</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 22)%>">22</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 23)%>">23</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 24)%>">24</td>
         </tr>
         <tr>
-        <td onclick="selectSeat(this)">25</td>
-        <td onclick="selectSeat(this)">26</td>
-        <td onclick="selectSeat(this)">27</td>
-        <td onclick="selectSeat(this)">28</td>
-        <td onclick="selectSeat(this)">29</td>
-        <td onclick="selectSeat(this)">30</td>
-        <td onclick="selectSeat(this)">31</td>
-        <td onclick="selectSeat(this)">32</td>
-        <td onclick="selectSeat(this)">33</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 25)%>">25</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 26)%>">26</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 27)%>">27</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 28)%>">28</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 29)%>">29</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 30)%>">30</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 31)%>">31</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 32)%>">32</td>
+        <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 33)%>">33</td>
         </tr>
         <tr>
         <td colspan="3"  style="background-color: #FF6A89;">현관</td>
@@ -164,28 +226,28 @@
 <div class="table-locker">
 <table>
       <tr>
-        <td onclick="selectlocker(this)">1</td>
-        <td onclick="selectlocker(this)">2</td>
-        <td onclick="selectlocker(this)">3</td>
-        <td onclick="selectlocker(this)">4</td>
-        <td onclick="selectlocker(this)">5</td>
-        <td onclick="selectlocker(this)">6</td>
-        <td onclick="selectlocker(this)">7</td>
-        <td onclick="selectlocker(this)">8</td>
-        <td onclick="selectlocker(this)">9</td>
-        <td onclick="selectlocker(this)">10</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 1)%>">1</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 2)%>">2</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 3)%>">3</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 4)%>">4</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 5)%>">5</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 6)%>">6</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 7)%>">7</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 8)%>">8</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 9)%>">9</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 10)%>">10</td>
       </tr>
       <tr>
-        <td onclick="selectlocker(this)">11</td>
-        <td onclick="selectlocker(this)">12</td>
-        <td onclick="selectlocker(this)">13</td>
-        <td onclick="selectlocker(this)">14</td>
-        <td onclick="selectlocker(this)">15</td>
-        <td onclick="selectlocker(this)">16</td>
-        <td onclick="selectlocker(this)">17</td>
-        <td onclick="selectlocker(this)">18</td>
-        <td onclick="selectlocker(this)">19</td>
-        <td onclick="selectlocker(this)">20</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 11)%>">11</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 12)%>">12</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 13)%>">13</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 14)%>">14</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 15)%>">15</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 16)%>">16</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 17)%>">17</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 18)%>">18</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 19)%>">19</td>
+        <td onclick="selectlocker(this)" class="<%= compare.LockerCompare(lockerArray, 20)%>">20</td>
         </tr>
 </table>
 </div>
