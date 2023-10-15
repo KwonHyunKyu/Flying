@@ -76,7 +76,7 @@ font-size: 18px;
 </div>
 <div type="btn_group">
 <p type="final">&#8595;숙지 하셨다면 스터디카페를 선택해 주세요!&#8595;</p>
-<button type="btn" onclick="location.href='..//index.jsp' ">스터디카페 선택</button>
+<button type="btn" onclick="location.href='payment_complete.jsp' ">스터디카페 선택</button>
 </div>
 </body>
 </html>

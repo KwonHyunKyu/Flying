@@ -100,7 +100,7 @@
           
 <div class="time-container">
   <div class="time-option">
-<button onclick="location.href='Pay.html'" />
+<button onclick="location.href='pay.html'" />
 1시간
 <span class="price">💲1500</span>
   </div>
