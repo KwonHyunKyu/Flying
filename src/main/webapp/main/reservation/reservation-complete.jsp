@@ -9,7 +9,7 @@
   String seatNum =  request.getParameter("selectedSeat");
   String useTime =  request.getParameter("selectedTime");
   String locker =  request.getParameter("selectedlocker");
-  String cafeId = "1";
+  String cafeId = (String)session.getAttribute("cafeid");
   String status = "0";
   reserInsert.reserveInsert(memId,cafeId,seatNum,locker,useTime,status);
 %>

@@ -8,6 +8,7 @@
 <jsp:useBean class="flyingMember.ReserveInfo" id="reserveInfo" scope="session"/>
 <%
 	String memLogin = (String)session.getAttribute("memLogin");
+    session.setAttribute("cafeid","3");
 	ArrayList<ReserveInfo> reservelist = memSearch.reserveList(3);
 	if(memLogin == null){ %>
 	<script>
