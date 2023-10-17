@@ -8,156 +8,142 @@
 <!DOCTYPE html>
 <html>
 
-<style>
-	header {
-  margin-bottom: 20px;
-}
-	
-	
-	
-	header {
-	    height:150px;
-	}
-	
-	header #top {
-	    width:1170px;
-	    margin:0 auto;
-	}
-	
-	header #logo {
-	    float:left;
-	    margin:50px 0 0 0;
-	}
-	header #logomessage{
-		float:left;
-		margin:70px 0 0 10px;
-		position: static;
-		font-family: "Raleway", sans-serif;
-	}
-	header #loginButton{
-		float:right;
-		margin:90px 0 0 0;
-	}
-	HR {
-	background-color:#00FF80; width:100%; border: 0px; height: 3px;
-	
-	
+  <style>
+        /* 헤더 스타일링 */
+        header {
+            margin-bottom: 20px;
+            height: 150px;
+        }
 
-}
+        header #top {
+            width: 1170px;
+            margin: 0 auto;
+        }
 
-nav ul {
-  width: 100%;
-  background-color: #34B680;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
+        header #logo {
+            float: left;
+            margin: 50px 0 0 0;
+        }
 
-nav headerul li {
-  display: inline-block;
-  position: relative;
-}
+        header #logomessage {
+            float: left;
+            margin: 70px 0 0 10px;
+            position: static;
+            font-family: "Raleway", sans-serif;
+        }
 
-nav ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 25px;
-  text-decoration: none;
-}
+        header #loginButton {
+            float: right;
+            margin: 90px 0 0 0;
+        }
 
-nav ul li:hover {
-  background-color: #2A8F57;
-}
+        HR {
+            background-color: #00FF80;
+            width: 100%;
+            border: 0px;
+            height: 3px;
+        }
 
-.dropdown:hover .dropdown-menu {
-  background-color: black;
-}
+        /* 네비게이션 스타일링 */
+        nav {
+            border-top: 1px solid #E5E5E5;
+        }
 
-.dropdown {
-  position: relative;
-}
+        nav ul {
+            width: 100%;
+            background-color: #fff;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-.dropdown-menu {
-  background-color: #34B680;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  cursor: pointer;
-}
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #34B680;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
+        nav ul li a {
+            display: block;
+            color: #333333;
+            text-align: center;
+            padding: 20px 25px;
+            text-decoration: none;
+        }
 
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+        nav ul li:hover {
+            background-color: #fff;
+            color: #2A8F57;
+            font-weight: bold;
+        }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+        /* 드롭다운 메뉴 스타일링 */
+        .dropdown {
+            position: relative;
+        }
 
-.dropdown:hover .dropdown-menu {
-  background-color: #2A8F57;
-}
+        .dropdown-menu {
+            background-color: #34B680;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-.home {
-  background-color: #2A8F57;
-  width: 100px;
-  text-align: center;
-  font-weight: bold;
-  float: right;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #34B680;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
 
-.home a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  padding: 20px 25px;
-}
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
-.dropdown-content a:hover {
-  background-color: #fff;
-  color: #2A8F57;
-  font-weight: bold;
-  border: 1px solid #2A8F57;
-}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-nav ul li:hover{
-  background-color: #fff;
-  border: 1px solid #2A8F57;
-}
+        .dropdown:hover .dropdown-menu {
+            background-color: #fff;
+            color: #2A8F57;
+        }
 
-.dropdown:hover .dropdown-menu {
-  background-color: #fff;
-  color: #2A8F57;
-}
-.home a {
-  color: #fff;
-}
-.home a:hover {
-  background-color: #2A8F57;
-}
+        /* 홈 버튼 스타일링 */
+        .home {
+            background-color: #fff;
+            width: 100px;
+            text-align: center;
+            font-weight: bold;
+            float: right;
+        }
 
-nav ul li a:hover {
-  color: #2A8F57;
-}
+        .home a {
+            display: block;
+            text-decoration: none;
+            color: #333333;
+            padding: 20px 25px;
+        }
 
- .dropdown:hover > a {
-    color: #2A8F57; /* 호버 시 글자 색 변경 */
-  }
+        .home a:hover {
+            color: #2A8F57;
+            font-weight: bold;
+        }
 
-</style>
+        /* 호버 시 글자 색 변경 */
+        .dropdown:hover > a {
+            color: #2A8F57;
+        }
+        
+        
+        
+    </style>
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
@@ -173,19 +159,31 @@ nav ul li a:hover {
         </section>
     </header>
 
- <nav>
+<nav>
   <ul id="headerul">
     <li class="home">
-      <a style="color: #fff;" href="#">메인</a>
+      <a href="#">메인</a>
     </li>
+
+    <li class="pay">
+<a href="./payment/paysystem1.jsp">결제 시스템</a>
+
     <li class="dropdown">
-<a href="../index.jsp">예약</a>
-      </a>
+      <a href="./index.jsp">회사 소개</a>
       <div class="dropdown-content">
-         <a href="../index.jsp">예약하기</a>
-        <a href="../index.jsp">내 예약 확인하기</a>
+        <a href="./index.jsp">솔루션 소개</a>
+        <a href="./index.jsp">내 예약 확인하기</a>
       </div>
     </li>
+    
+    <li class="dropdown">
+      <a href="./index.jsp">예약</a>
+      <div class="dropdown-content">
+        <a href="./index.jsp">예약하기</a>
+        <a href="./index.jsp">내 예약 확인하기</a>
+      </div>
+    </li>
+    
     <li class="dropdown">
       <a href="#">
         예약 및 이용 방법
@@ -197,6 +195,7 @@ nav ul li a:hover {
     </li>
   </ul>
 </nav>
+
 
     
 </div>
