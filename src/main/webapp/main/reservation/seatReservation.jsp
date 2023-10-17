@@ -50,7 +50,7 @@
       selectedSeat = seat;
       selectedSeat.classList.add("selected");
 
-      document.getElementById("selectedSeat").innerText = selectedSeat.innerText;
+      document.getElementById("selectedSeat).innerText = selectedSeat.innerText;
       document.getElementById("useSeat").value = selectedSeat.innerText;
     }
     </script>
@@ -152,26 +152,27 @@
   <header>
     <jsp:include page="../module/header2.jsp" flush="false" />
   </header>
-  <h1 style="margin-top:150px;">원하는 좌석과 사물함을 선택해주세요.</h1>
+  <h1 style="margin-top:150px; text-align: center; font-size: 24px; color: #333; font-weight: bold;">원하는 좌석과 사물함을 선택해주세요.</h1>
+>
 
 <div class="selected-seat-container" style=" justify-content: right; align-items: center; margin-top:0px;">
-  <p class="selected-seat" style="font-size: 30px; background-color: #34B680; padding: 15px; border-radius: 15px; width: fit-content;">
+  <p class="selected-seat" style="font-size:20px; padding: 15px; border-radius: 10px; background-color: #ECE9E9; width: fit-content;">
     선택된 좌석: <span id="selectedSeat"></span>
   </p>
   
-  <p class="selected-locker" style="font-size: 30px; background-color: #34B680; padding: 15px; border-radius: 15px; width: fit-content;">
+  <p class="selected-locker" style="font-size: 20px; background-color: #ECE9E9; padding: 15px; border-radius: 10px; width: fit-content;">
     선택된 사물함: <span id="selectedlocker"></span>
   </p>
-    <p class="selected-locker" style="font-size: 30px; background-color: #34B680; padding: 15px; border-radius: 15px; width: fit-content;">
+    <p class="selected-locker" style="font-size:20px; background-color: #ECE9E9; padding: 15px; border-radius: 10px;  width: fit-content;">
     선택된 이용권: <span id="selectedTime"></span>
   </p>
 </div>
 <div class="table-container">
   <table>
       <tr>
-        <td colspan="3"  style="background-color: Skyblue;">스터디 룸</td>
-        <td colspan="3" style="background-color: Skyblue;">스터디 룸</td>
-        <td colspan="4" style="background-color: blue;">화장실</td>
+        <td colspan="3"  style="background-color: #ECE9E9;">스터디 룸</td>
+        <td colspan="3" style="background-color: #ECE9E9;">스터디 룸</td>
+        <td colspan="4" style="background-color: #ECE9E9;">화장실</td>
         </tr>
         <tr>
         </tr>
@@ -181,7 +182,7 @@
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 4)%>">4</td>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 5)%>">5</td>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 6)%>">6</td>
-        <td colspan="5" style="background-color: #FF8C0A;">카운터</td>
+        <td colspan="5" style="background-color: #ECE9E9;">카운터</td>
         </tr>
         <tr>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 7)%>">7</td>
@@ -193,7 +194,7 @@
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 13)%>">13</td>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 14)%>">14</td>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 15)%>">15</td>
-        <td rowspan="3" style="background-color: #9F814F;">사물함</td>
+        <td rowspan="3" style="background-color: #ECE9E9;">사물함</td>
         </tr>
         <tr>
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 16)%>">16</td>
@@ -218,11 +219,13 @@
         <td onclick="selectSeat(this)" class="<%= compare.SeatCompare(seatArray, 33)%>">33</td>
         </tr>
         <tr>
-        <td colspan="3"  style="background-color: #FF6A89;">현관</td>
+        <td colspan="3"  style="background-color: #ECE9E9;">현관</td>
         <td colspan="7"  style="background-color: transparent;"></td>
         </tr>
           </table>
 </div>
+<br>
+<br>
 <div class="table-locker">
 <table>
       <tr>
@@ -251,6 +254,8 @@
         </tr>
 </table>
 </div>
+<br>
+<br>
 <div class="table-time">
 <table>
       <tr>
@@ -266,7 +271,7 @@
 	<input type="hidden" id="useSeat" name="selectedSeat">
 	<input type="hidden" id="useTime" name="selectedTime">
 	<input type="hidden" id="uselocker" name="selectedlocker">
-	<input type="submit" style="background-color: #34B680; font-size: 24px; padding: 15px 30px; border-radius: 10px; display: block; margin: 20px auto; text-align: center; color: white;" value="예약 완료">
+	<input type="submit" style="background-color: #DDDCDC; font-size: 20px; padding: 15px 30px; border-radius: 10px; display: block; margin: 20px auto; text-align: center; color:#000;" value="예약 완료">
 </form>
 
 <footer>
