@@ -196,6 +196,10 @@
   </ul>
 </nav>
 
+<hr style="background-color: #E5E5E5;
+            width: 100%;
+            border: 0px;
+            height: 1px;">
 
     
 </div>
