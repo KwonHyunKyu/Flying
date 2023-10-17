@@ -27,30 +27,19 @@
 	    margin-left:50px;
 	}
 	
-	footer #footer_menu a:link {
-	    color:#ffffff;
-	}
+
 	
-	footer #footer_menu a:hover {
-	    font-color:#ffffff;
-	}
-	
-	footer #footer_menu a:visited {
-	    color:#ffffff;
-	}
-	
-	footer #footer_menu a:active {
-	    color:#ffffff;
-	}
+
+
 	
 	footer #footer_address {
 	    width:900px;
 	    margin:auto;
 	}
 	
-	#footcolor {
-		background-color:white;
-	}
+	
+	
+
 	
 	ul{
 		margin: -3px;
