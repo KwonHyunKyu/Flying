@@ -34,7 +34,7 @@
   margin-top: 10px;
 
 
-  background-color:rgb(128, 255, 128);
+  background-color:rgb(245, 243, 243);
 }
 
  
@@ -67,7 +67,7 @@
  .table-time
  {
  	margin-top:10px;
- 	background-color:rgb(255, 128, 0);
+ 	background-color:rgb(255, 255, 255);
  }
  .selected-seat-container {
   display: flex;
@@ -79,10 +79,9 @@
 }
 
 .selected-seat, .selected-locker, .selected-time {
-  font-size: 18px; /* Set the font size to 18px */
-  background-color: #34B680;
+  font-size: 14px; /* Set the font size to 14px */
+  background-color: white; /* Set the background color to white */
   padding: 15px;
-  border-radius: 15px;
   text-align: center;
   width: 130px; /* Set a fixed width for all three boxes */
   height: 80px; /* Set a fixed height for all three boxes */
