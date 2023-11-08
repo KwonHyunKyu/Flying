@@ -165,14 +165,7 @@
   </div>
 
   <button type="button" id="save-seat-layout-button" onclick="saveSeatLayout()">좌석 배치 저장</button>
-<<<<<<< HEAD
 <footer id ='footer'>
   <%@ include file="../module/footer.jsp" %>
 </footer>
 </body> 
-=======
-
-  <%@ include file="../module/footer.jsp" %>
-
-</body> 
->>>>>>> de425111acd6bb91b416adce0b144414343ac34a

@@ -12,6 +12,7 @@
 	String memberID = (String)session.getAttribute("memID");
 	memInfo = memSearch.memberSearch(memberID);
 	reserveInfo = memSearch.reservationSearch(memberID);
+	String nullword = " ";
 %>	
 
 <!DOCTYPE html>
@@ -47,10 +48,6 @@
 			<tr>
 				<th scope="row">회원아이디</th>
 				<td><%= memInfo.getMemberId() %></td>
-			</tr>
-			<tr>
-				<th scope="row">회원비밀번호</th>
-				<td><%= memInfo.getMemberPassword() %></td>
 			</tr>
 			<tr>
 				<th scope="row">회원등급</th>
@@ -103,23 +100,23 @@
 		<tbody>
 			<tr>
 				<th scope="row">회원아이디</th>
-				<td><%= reserveInfo.getMemberId() %></td>
+				<td><%= memSearch.checkNull(reserveInfo.getMemberId(), nullword) %></td>
 			</tr>
 			<tr>
 				<th scope="row">카페아이디</th>
-				<td><%= reserveInfo.getCafeId() %></td>
+				<td><%= memSearch.checkNull(reserveInfo.getCafeId(), nullword) %></td>
 			</tr>
 			<tr>
 				<th scope="row">좌석번호</th>
-				<td><%= reserveInfo.getSeatNumber() %></td>
+				<td><%= memSearch.checkNull(reserveInfo.getSeatNumber(), nullword) %></td>
 			</tr>
 			<tr>
 				<th scope="row">사물함번호</th>
-				<td><%= reserveInfo.getLockerNumber() %></td>
+				<td><%= memSearch.checkNull(reserveInfo.getLockerNumber(), nullword) %></td>
 			</tr>
 			<tr>
 				<th scope="row">이용권</th>
-				<td><%= reserveInfo.getUseTime() %></td>
+				<td><%= memSearch.checkNull(reserveInfo.getUseTime(), nullword) %></td>
 			</tr>
 		</tbody>
 	</table>

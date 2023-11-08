@@ -91,7 +91,9 @@
 </head>
 
 <body>
-
+<header>
+   <jsp:include page="../module/header2.jsp" flush="false" />
+</header>
   
   
    <div class="container">
@@ -100,34 +102,36 @@
           
 <div class="time-container">
   <div class="time-option">
-<button onclick="location.href='Pay.html'" />
+<button onclick="location.href='payment15.jsp'" />
 1시간
 <span class="price">💲1500</span>
   </div>
   <div class="time-option">
-<button onclick="location.href='Pay_B_1.html'" />
+<button onclick="location.href='payment30.jsp'" />
 2시간
 <span class="price">💲3000</span>
   </div>
   <div class="time-option">
-<button onclick="location.href='Pay_C.html'" />
+<button onclick="location.href='payment50.jsp'" />
 3시간
 <span class="price">💲5000</span>
   </div>
   <div class="time-option">
-<button onclick="location.href='Pay_D.html'" />
+<button onclick="location.href='payment60.jsp'" />
 4시간
 <span class="price">💲6000</span>
     </button>
   </div>
   <div class="time-option">
-<button onclick="location.href='Pay_E.html'" />
+<button onclick="location.href='payment70.jsp'" />
 5시간
 <span class="price">💲7000</span>
   </div>
 </div>
       
     </div>
-
+<footer>
+    <jsp:include page="../module/footer.jsp"/>
+</footer>
 </body>
 </html>

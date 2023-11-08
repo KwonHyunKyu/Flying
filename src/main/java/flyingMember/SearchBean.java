@@ -305,4 +305,10 @@ public class SearchBean {
 		return meminfo;
 		
 	}
+	
+	public static String checkNull(String str, String replaceStr) {
+		return (str == null || str.equals("")) ? replaceStr : str;
+	}
+	
+	
 }
