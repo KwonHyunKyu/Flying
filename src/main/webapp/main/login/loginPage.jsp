@@ -27,7 +27,7 @@
 </header>
 <main>
 	<form id="logintheme" action="loginProcess.jsp" name="login_form">
-		<img src="../img/mainlogo.png" width="300" height="100" alt="로고">
+		<img src="../img/mainlogo.png" width="100" height="50" alt="로고">
 		<div id="loginForm">
 			<input type="text" placeholder="아이디" id="login" name="id" value=<%=idStr%>>
 		</div>
