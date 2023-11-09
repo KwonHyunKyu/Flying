@@ -45,11 +45,11 @@
         }
 
         /* 네비게이션 스타일링 */
-        nav {
+        #headernv{
             border-top: 1px solid #E5E5E5;
         }
 
-        nav ul {
+        #headerul {
             width: 100%;
             background-color: #fff;
             list-style-type: none;
@@ -159,14 +159,14 @@
         </section>
     </header>
 
-<nav>
+<nav id="headernv">
   <ul id="headerul">
     <li class="home">
       <a href="#">메인</a>
     </li>
 
     <li class="pay">
-<a href="./payment/paysystem1.jsp">결제 시스템</a>
+<a href="../payment/time_selection.jsp">결제 시스템</a>
 
     <li class="dropdown">
       <a href="./index.jsp">회사 소개</a>

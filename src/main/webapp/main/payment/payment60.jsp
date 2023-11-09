@@ -25,7 +25,7 @@
       <img src="../img/coupon.png" alt="Coupon Icon" style="width:130px; height: 80px;"> <!-- Adjust width and height as needed -->
   <span style="font-size: 15px; font-weight: bold;">당일권 4시간</span>
       <span>6,000원 </span>
-      <button id="payment-button">6,000원 결제하기</span></button>
+      <button id="payment-button">6,000원 결제하기</button>
     </section>
     <script>
       var clientKey = 'test_ck_jExPeJWYVQlyX2DkY1n349R5gvNL'
@@ -33,9 +33,9 @@
       var button = document.getElementById('payment-button') // 결제하기 버튼
       button.addEventListener('click', function () {
         tossPayments.requestPayment('카드', {
-          amount: 1500,
+          amount: 6000,
           orderId: 'flying12',
-          orderName: '1시간 이용권',
+          orderName: '4시간 이용권',
           customerName: 'Flying',
           successUrl: 'http://localhost:8085/Flying/main/payment/payment_complete.jsp',
           failUrl: 'http://localhost:8080/fail',	

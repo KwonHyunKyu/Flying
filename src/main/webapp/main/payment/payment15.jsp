@@ -25,7 +25,7 @@
       <img src="../img/coupon.png" alt="Coupon Icon" style="width:130px; height: 80px;"> <!-- Adjust width and height as needed -->
   <span style="font-size: 15px; font-weight: bold;">당일권 1시간</span>
       <span>1,500 원</span>
-      <button id="payment-button">1,500원 결제하기</span></button>
+      <button id="payment-button">1,500원 결제하기</button>
     </section>
     <script>
       var clientKey = 'test_ck_jExPeJWYVQlyX2DkY1n349R5gvNL'

@@ -25,5 +25,26 @@
       <img src="../img/coupon.png" alt="Coupon Icon" style="width:130px; height: 80px;"> <!-- Adjust width and height as needed -->
   <span style="font-size: 15px; font-weight: bold;">당일권 3시간</span>
       <span>5,000원 </span>
-      <button id="payment-button">5,000원 결제하기</span></button>
+      <button id="payment-button">5,000원 결제하기</button>
     </section>
+    <script>
+      var clientKey = 'test_ck_jExPeJWYVQlyX2DkY1n349R5gvNL'
+      var tossPayments = TossPayments(clientKey)
+      var button = document.getElementById('payment-button') // 결제하기 버튼
+      button.addEventListener('click', function () {
+        tossPayments.requestPayment('카드', {
+          amount: 5000,
+          orderId: 'flying12',
+          orderName: '3시간 이용권',
+          customerName: 'Flying',
+          successUrl: 'http://localhost:8085/Flying/main/payment/payment_complete.jsp',
+          failUrl: 'http://localhost:8080/fail',	
+        })
+      })
+    </script>
+</div>
+<footer>
+    <jsp:include page="../module/footer.jsp"/>
+</footer>
+</body>
+</html>

@@ -35,6 +35,7 @@
 	footer #footer_address {
 	    width:900px;
 	    margin:auto;
+	    
 	}
 	
 	
@@ -42,7 +43,10 @@
 
 	
 	ul{
-		margin: -3px;
+		margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
 	}
 </style>
 <div id="footcolor">
