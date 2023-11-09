@@ -14,78 +14,87 @@
   }
   </script>
 <style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 300px;
-    margin-bottom:300px;
-  }
+ .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
 
-  .time-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  }
+.container h2 {
+  margin-top: 20px;
+}
 
-  .time-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 70px; /* 수정된 부분: 오른쪽 마진을 20px로 변경 */
-    width: 100px;
-    height: 80px;
-    text-align: center;
-    line-height: 80px;
-    border-radius: 10px;
-  }
 
-  .time-option button {
-    background-color: #34B680;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    transform: scale(1.5);
-    border-radius: 5px;
-  }
 
-  .time-option button:hover {
-    background-color: #fff;
-    color: #34B680;
-    border: 1px solid #808080;
-  }
+.time-container {
+  display: grid; /* Change to grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Adjust the gap between items */
+  margin-bottom: 50px;
+}
 
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
+.time-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px; /* Adjusted the margin-right */
+  margin-left: 20px; /* Added margin-left to center the tables */
+}
 
-  input[type="number"] {
-    width: 100px;
-  }
 
-  form {
-    margin-top: 10px;
-  }
+.time-option button {
+  background-color: #34B680;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  transform: scale(1.5);
+  border-radius: 5px;
+}
 
-  form input[type="submit"] {
-    background-color: #34B680;
-    color: #fff;
-    border: none;
-    padding: 10px 50px;
-    font-size: 16px;
-    transform: scale(1.5);
-    border-radius: 5px;
-  }
+.time-option button:hover {
+  background-color: #fff;
+  color: #34B680;
+  border: 1px solid #808080;
+}
 
-  form input[type="submit"]:hover {
-    background-color: #fff;
-    color: #34B680;
-    border: 1px solid #808080;
-  }
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 100px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+form input[type="submit"] {
+  background-color: #34B680;
+  color: #fff;
+  border: none;
+  padding: 10px 50px;
+  font-size: 16px;
+  transform: scale(1.5);
+  border-radius: 5px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #fff;
+  color: #34B680;
+  border: 1px solid #808080;
+}
+
 </style>
 
 </head>
@@ -104,29 +113,39 @@
   <div class="time-option">
 <button onclick="location.href='payment15.jsp'" />
 1시간
-<span class="price">💲1500</span>
+<span class="price">1500원</span>
   </div>
+  
+  
   <div class="time-option">
 <button onclick="location.href='payment30.jsp'" />
 2시간
-<span class="price">💲3000</span>
+<span class="price">3000원</span>
+
   </div>
   <div class="time-option">
 <button onclick="location.href='payment50.jsp'" />
 3시간
-<span class="price">💲5000</span>
+<span class="price">5000원</span>
   </div>
   <div class="time-option">
 <button onclick="location.href='payment60.jsp'" />
 4시간
-<span class="price">💲6000</span>
+<span class="price">6000원</span>
     </button>
   </div>
   <div class="time-option">
 <button onclick="location.href='payment70.jsp'" />
 5시간
-<span class="price">💲7000</span>
+<span class="price">7000원</span>
   </div>
+    <div class="time-option">
+  <button onclick="location.href='payment80.jsp'" />
+6시간
+<span class="price">8000원</span>
+  </div>
+ </div>  
+  
 </div>
       
     </div>
