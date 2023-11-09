@@ -28,7 +28,7 @@
     <jsp:include page="../module/header2.jsp" flush="false" />
 </header>
 <div id="title1">
-	<img src="../img/mainlogo.png" width="345" height="105" alt="로고">
+	<img src="../img/mainlogo.png" width="100" height="50" alt="로고">
 	<h1><%out.print(memName);%>님의 MyPage</h1>
 </div>
 <div id="tableLayout">
@@ -84,7 +84,7 @@
 			    return;
 		}
 		</script>
-		<input type="submit" value="flying탈퇴" id="button2"  onclick="button_event();">
+		<input type="submit" value="회원탈퇴하기" id="button2"  onclick="button_event();">
 	</div>
 	
 	<h1><%out.print(memName);%>님의 예약내역</h1>
