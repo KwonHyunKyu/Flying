@@ -1,37 +1,50 @@
 
 
 #login {
-	margin-top: 30px; 
-	width:600px; 
-	height:80px;   
-	border-radius: 12px; 
-	border-color:#00FF80;
-	border:1 #00FF80;
-	font-size: 25px;
-	outline:1px; 
-	solid: #00FF80;
-	color:#00FF80;
+	 width: 350px;
+    height: 55px;
+    padding: 0 20px 0 50px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
 }
 		
 #password {
-	margin-top: 10px; 
-	width:600px; 
-	height:80px; 
-	display: inline-block; 
-	border-radius: 12px;
-	border-color:#00FF80;
-	border:1 #00FF80;
-	font-size: 25px;
-	outline:1px; 
-	solid: #00FF80;
+	width: 350px;
+    height: 55px;
+    padding: 0 20px 0 50px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
 }
 		   
+		   
 #button {
-	width:600px; 
-	height:70px; 
-	color:#00FF80; 
-	font-weight: bold;
+
+    width: 350px;
+    height: 55px;
+    background-color: #34B680;
+    border: none;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: 700;
 }
+
+#login:focus {
+    border-color: #34B680;
+}
+
+#password:focus {
+    border-color: #34B680;
+}
+
+
 		 
 #loginButton {
 	margin-top: 25px; 
@@ -49,7 +62,7 @@
 #logincheck {
 	margin-top:20px; 
 	font-size: 20px; 
-	color:#00FF80; 
+	color:rgb(0, 128, 128); 
 	font-weight: bold;
 }
 			 
@@ -59,20 +72,6 @@
 	margin-bottom:255px;
 }
 			 
-#button {
-	background-color: #00FF80; /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 20px;
-	cursor: pointer;
-	border-radius: 12px;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-	font-weight: 800;
-}
 
 #logincheckbox {
 	width: 20px;
@@ -83,7 +82,15 @@
 
 
 #linkButton {
-	margin-top:25px;
-	font-size:20px;
-	color: #0872FD;
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+#linkButton a {
+    text-decoration: none;
+    color: #727272;
+}
+
+#linkButton a:hover {
+    color: #0872FD; /* Change color on hover */
 }
