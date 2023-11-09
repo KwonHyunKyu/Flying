@@ -23,7 +23,7 @@
     <section>
      
       <img src="../img/coupon.png" alt="Coupon Icon" style="width:130px; height: 80px;"> <!-- Adjust width and height as needed -->
-  <span style="font-size: 15px; font-weight: bold;">당일권 1시간</span>
+  <span style="font-size: 15px; font-weight: bold;">당일권 5시간</span>
       <span>7,000원 </span>
       <button id="payment-button">7,000원 결제하기</span></button>
     </section>
